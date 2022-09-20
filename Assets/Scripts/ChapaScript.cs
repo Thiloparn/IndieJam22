@@ -14,6 +14,10 @@ public class ChapaScript : MonoBehaviour
     [Range(0.0f, 100.0f)]
     public float accelerationAmount;
 
+    [Range(0f, 1.0f)]
+    [Tooltip("If greater than 0, it will apply the accelerationAmount a lo largo de esta cantidad de segundos.")]
+    public float accelerationTime;
+
     [Range(0.0f, 10.0f)]
     public float floorDrag;
 
@@ -38,6 +42,8 @@ public class ChapaScript : MonoBehaviour
 
     float remainingTimeOnAir = 0f;
     float timeSinceLastBeat = 0f;
+
+    Vector2 lastDirection;
 
     // temp variables, for debugging
     public Color backgroundMainColor;
@@ -65,6 +71,11 @@ public class ChapaScript : MonoBehaviour
         }
 
         Camera.main.backgroundColor = Color.Lerp(backgroundBeatColor, backgroundMainColor, (timeSinceLastBeat / secondsBetweenBeats) * (timeSinceLastBeat / secondsBetweenBeats));
+
+        if (accelerationTime > 0f && timeSinceLastBeat < accelerationTime)
+        {
+            velocity += accelerationAmount * lastDirection * Time.deltaTime / accelerationTime;
+        }
 
         float curDrag = (remainingTimeOnAir > 0f) ? airDrag : floorDrag;
         velocity -= velocity * curDrag * Time.deltaTime;
@@ -109,14 +120,17 @@ public class ChapaScript : MonoBehaviour
         if (alwaysPressed || Input.GetMouseButton(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mouseDir = (mousePos - position).normalized;
+            lastDirection = (mousePos - position).normalized;
 
             if (invertDirection)
             {
-                mouseDir *= -1f;
+                lastDirection *= -1f;
             }
 
-            velocity += accelerationAmount * mouseDir;
+            if (accelerationTime == 0f)
+            {
+                velocity += accelerationAmount * lastDirection;
+            }
             remainingTimeOnAir = airTime;
         }
 
