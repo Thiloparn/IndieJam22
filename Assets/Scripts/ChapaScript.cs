@@ -79,7 +79,7 @@ public class ChapaScript : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
             {
-                timeSinceLastBeat %= secondsBetweenBeats;
+                timeSinceLastBeat = 0f;
                 Beat();
             }
         }
