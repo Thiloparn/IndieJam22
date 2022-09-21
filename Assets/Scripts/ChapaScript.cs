@@ -70,7 +70,7 @@ public class ChapaScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -104,7 +104,10 @@ public class ChapaScript : MonoBehaviour
         {
             velocity += accelerationAmount * lastDirection * Time.deltaTime / accelerationTime;
         }
+    }
 
+    void FixedUpdate()
+    {
         float curDrag;
         if (remainingTimeOnAir > 0f)
         {
