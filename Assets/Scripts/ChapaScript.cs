@@ -6,9 +6,9 @@ public class ChapaScript : MonoBehaviour
 {
 
     [HideInInspector]
-    public Vector2 position;
+    public Vector2 position = Vector2.zero;
     [HideInInspector]
-    public Vector2 velocity;
+    public Vector2 velocity = Vector2.zero;
 
     [Range(0.01f, 2.0f)]
     public float secondsBetweenBeats;
@@ -48,7 +48,7 @@ public class ChapaScript : MonoBehaviour
     float remainingTimeOnAir = 0f;
     float timeSinceLastBeat = 0f;
 
-    Vector2 lastDirection;
+    Vector2 lastDirection = Vector2.zero;
 
     // temp variables, for debugging
     public Color backgroundMainColor;
@@ -72,6 +72,15 @@ public class ChapaScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            position = Vector2.zero;
+            velocity = Vector2.zero;
+            remainingTimeOnAir = 0f;
+            timeSinceLastBeat = 0f;
+            lastDirection = Vector2.zero;
+        }
+
         remainingTimeOnAir = Mathf.Max(0f, remainingTimeOnAir - Time.deltaTime);
 
         timeSinceLastBeat += Time.deltaTime;
