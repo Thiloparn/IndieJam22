@@ -11,7 +11,7 @@ public class ChapaScript : MonoBehaviour
     [Range(0.01f, 2.0f)]
     public float secondsBetweenBeats;
 
-    [Range(0.0f, 100.0f)]
+    [Range(0.0f, 500.0f)]
     public float accelerationAmount;
 
     [Range(0f, 1.0f)]
