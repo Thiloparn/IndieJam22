@@ -23,6 +23,9 @@ public class ChapaScript : MonoBehaviour
     [Range(0.0f, 10.0f)]
     public float defaultFloorDrag;
 
+    [Tooltip("If true, beats are triggered by clicking instead of the beat.")]
+    public bool freeClick;
+
     [Tooltip("If true, act as if mouse was pressed every beat.")]
     public bool alwaysPressed;
 
@@ -72,7 +75,15 @@ public class ChapaScript : MonoBehaviour
         remainingTimeOnAir = Mathf.Max(0f, remainingTimeOnAir - Time.deltaTime);
 
         timeSinceLastBeat += Time.deltaTime;
-        if (timeSinceLastBeat > secondsBetweenBeats)
+        if (freeClick)
+        {
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+            {
+                timeSinceLastBeat %= secondsBetweenBeats;
+                Beat();
+            }
+        }
+        else if (timeSinceLastBeat > secondsBetweenBeats)
         {
             timeSinceLastBeat %= secondsBetweenBeats;
             Beat();

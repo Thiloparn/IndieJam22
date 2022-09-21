@@ -3116,12 +3116,16 @@ PrefabInstance:
       value: 0.76
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
+      propertyPath: backgroundBeatColor.b
+      value: 0.5754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: backgroundBeatColor.g
-      value: 0.37982544
+      value: 0.36526427
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: backgroundBeatColor.r
-      value: 0.21568626
+      value: 0.23073158
       objectReference: {fileID: 0}
     - target: {fileID: 5071639640549377536, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: m_RootOrder
@@ -3672,12 +3676,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1554560262, guid: 15d87eaac73424245b16b38e0150bc80, type: 3}
       propertyPath: margin
-      value: 0.5
+      value: 0.037
       objectReference: {fileID: 0}
     - target: {fileID: 1554560262, guid: 15d87eaac73424245b16b38e0150bc80, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1677673690}
+    - target: {fileID: 1554560262, guid: 15d87eaac73424245b16b38e0150bc80, type: 3}
+      propertyPath: useMargin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554560262, guid: 15d87eaac73424245b16b38e0150bc80, type: 3}
+      propertyPath: predictDistance
+      value: 6.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554560262, guid: 15d87eaac73424245b16b38e0150bc80, type: 3}
+      propertyPath: predictPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554560262, guid: 15d87eaac73424245b16b38e0150bc80, type: 3}
+      propertyPath: predictMoveSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1554560262, guid: 15d87eaac73424245b16b38e0150bc80, type: 3}
+      propertyPath: predictTurnSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 3041006272793853469, guid: 15d87eaac73424245b16b38e0150bc80, type: 3}
       propertyPath: m_Name
       value: MainCamera
