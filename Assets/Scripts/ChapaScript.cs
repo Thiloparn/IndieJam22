@@ -5,8 +5,10 @@ using UnityEngine;
 public class ChapaScript : MonoBehaviour
 {
 
-    Vector2 position;
-    Vector2 velocity;
+    [HideInInspector]
+    public Vector2 position;
+    [HideInInspector]
+    public Vector2 velocity;
 
     [Range(0.01f, 2.0f)]
     public float secondsBetweenBeats;

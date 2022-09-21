@@ -132,4 +132,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  useMargin: 1
   margin: 0.5
+  predictPosition: 0
+  predictDistance: 0.4
+  predictTurnSpeed: 0.67
+  predictMoveSpeed: 1.2
