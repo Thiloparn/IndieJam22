@@ -21,7 +21,7 @@ public class ChapaScript : MonoBehaviour
     public float accelerationTime;
 
     [Range(0.0f, 10.0f)]
-    public float floorDrag;
+    public float defaultFloorDrag;
 
     [Tooltip("If true, act as if mouse was pressed every beat.")]
     public bool alwaysPressed;
@@ -53,11 +53,17 @@ public class ChapaScript : MonoBehaviour
 
     float chapaRadius;
 
+    LayerMask wallsMask;
+    LayerMask floorsMask;
+
     // Start is called before the first frame update
     void Start()
     {
         // dirty hack
         chapaRadius = transform.localScale.x / 2f;
+
+        floorsMask = LayerMask.GetMask("Floors");
+        wallsMask = LayerMask.GetMask("Walls");
     }
 
     // Update is called once per frame
@@ -79,13 +85,34 @@ public class ChapaScript : MonoBehaviour
             velocity += accelerationAmount * lastDirection * Time.deltaTime / accelerationTime;
         }
 
-        float curDrag = (remainingTimeOnAir > 0f) ? airDrag : floorDrag;
+        float curDrag;
+        if (remainingTimeOnAir > 0f)
+        {
+            curDrag = airDrag;
+        }
+        else
+        {
+            curDrag = defaultFloorDrag;
+            RaycastHit2D floorHit = Physics2D.CircleCast(position, chapaRadius, Vector2.zero, 0.0f, floorsMask);
+            if (floorHit.collider != null)
+            {
+                Debug.Log("a");
+                FloorScript curFloor = floorHit.collider.GetComponent<FloorScript>();
+                if (curFloor != null)
+                {
+                    curDrag = curFloor.drag;
+                    Debug.Log(curFloor.drag);
+                }
+            }
+        }
+
+
         velocity -= velocity * curDrag * Time.deltaTime;
 
         // Bounce against walls!
         float deltaDistance = velocity.magnitude * Time.deltaTime;
         // todo: change to the "nonalloc" version
-        RaycastHit2D hit = Physics2D.CircleCast(position, chapaRadius, velocity, deltaDistance);
+        RaycastHit2D hit = Physics2D.CircleCast(position, chapaRadius, velocity, deltaDistance, wallsMask);
 
         position += velocity * Time.deltaTime;
 

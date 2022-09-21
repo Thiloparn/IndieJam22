@@ -99,9 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25ab5ada5b7b437408e417936702ea33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  position: {x: 0, y: 0}
+  velocity: {x: 0, y: 0}
   secondsBetweenBeats: 0.52
   accelerationAmount: 35.7
-  floorDrag: 4.64
+  accelerationTime: 0
+  defaultFloorDrag: 4.64
   alwaysPressed: 1
   allowBrake: 0
   bounciness: 1.15

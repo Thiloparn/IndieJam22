@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2929250022616537658}
   - component: {fileID: 2070402692}
   - component: {fileID: 2070402693}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CircleBouncer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
