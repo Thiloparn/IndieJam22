@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1554560261}
   - component: {fileID: 1554560259}
   - component: {fileID: 1554560262}
+  - component: {fileID: 1002423602}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -138,3 +139,16 @@ MonoBehaviour:
   predictDistance: 0.4
   predictTurnSpeed: 0.67
   predictMoveSpeed: 1.2
+--- !u!114 &1002423602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3041006272793853469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
