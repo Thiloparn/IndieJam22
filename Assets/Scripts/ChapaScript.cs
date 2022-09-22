@@ -59,7 +59,8 @@ public class ChapaScript : MonoBehaviour
     float timeSinceLastBeat = 0f;
 
     Vector2 lastDirection = Vector2.zero;
-    Vector2 mouseDirection = Vector2.zero;
+    [HideInInspector]
+    public Vector2 mouseDirection = Vector2.zero;
 
     // temp variables, for debugging
     public Color backgroundMainColor;

@@ -33,7 +33,9 @@ public class CameraScript : MonoBehaviour
         if (predictPosition)
         {
             // predictDelta is the current velocity with some "inertia", so sudden changes in direction don't move the camera too much
-            predictDelta = Vector2.MoveTowards(predictDelta.normalized, player.velocity.normalized, predictTurnSpeed);
+            // predictDelta = Vector2.MoveTowards(predictDelta.normalized, player.velocity.normalized, predictTurnSpeed);
+
+            predictDelta = Vector2.MoveTowards(predictDelta, player.mouseDirection, predictTurnSpeed);
 
             Vector2 targetPosition = player.position + predictDelta * predictDistance;
             transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetPosition.x, targetPosition.y, transform.position.z), predictMoveSpeed);
