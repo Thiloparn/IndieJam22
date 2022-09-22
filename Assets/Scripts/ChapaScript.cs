@@ -45,6 +45,13 @@ public class ChapaScript : MonoBehaviour
     [Range(0.0f, 10.0f)]
     public float airDrag;
 
+    [Tooltip("When falling in a hole, how many turns to go back.")]
+    [Range(1, 5)]
+    public int holePenalty = 1;
+
+    List<Vector2> previousPositions;
+    int maxPositionsStored = 100;
+
     float remainingTimeOnAir = 0f;
     float timeSinceLastBeat = 0f;
 
@@ -67,6 +74,8 @@ public class ChapaScript : MonoBehaviour
 
         floorsMask = LayerMask.GetMask("Floors");
         wallsMask = LayerMask.GetMask("Walls");
+
+        previousPositions = new List<Vector2>(maxPositionsStored);
     }
 
     // Update is called once per frame
@@ -119,12 +128,25 @@ public class ChapaScript : MonoBehaviour
             RaycastHit2D floorHit = Physics2D.CircleCast(position, chapaRadius, Vector2.zero, 0.0f, floorsMask);
             if (floorHit.collider != null)
             {
-                Debug.Log("a");
                 FloorScript curFloor = floorHit.collider.GetComponent<FloorScript>();
                 if (curFloor != null)
                 {
-                    curDrag = curFloor.drag;
-                    Debug.Log(curFloor.drag);
+                    if (curFloor.isHole && previousPositions.Count > 0)
+                    {
+                        int nToRemove = Mathf.Min(holePenalty - 1, previousPositions.Count - 1);
+                        previousPositions.RemoveRange(previousPositions.Count - nToRemove, nToRemove);
+                        position = previousPositions[previousPositions.Count - 1];
+                        transform.position = position;
+                        velocity = Vector2.zero;
+                        remainingTimeOnAir = 0f;
+                        timeSinceLastBeat = 0f;
+                        lastDirection = Vector2.zero;
+                        return;
+                    }
+                    else
+                    {
+                        curDrag = curFloor.drag;
+                    }
                 }
             }
         }
@@ -175,6 +197,12 @@ public class ChapaScript : MonoBehaviour
 
     void Beat()
     {
+        if (previousPositions.Count >= maxPositionsStored)
+        {
+            previousPositions.RemoveAt(0);
+        }
+        previousPositions.Add(position + Vector2.zero);
+
         if (alwaysPressed || Input.GetMouseButton(0))
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
