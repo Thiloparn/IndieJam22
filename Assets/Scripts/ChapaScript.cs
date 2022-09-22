@@ -35,6 +35,9 @@ public class ChapaScript : MonoBehaviour
     [Tooltip("If true, not having a floor will be taken as a hole.")]
     public bool defaultToHole = false;
 
+    [Tooltip("If true, will set acceleration to 0 between beats.")]
+    public bool resetAccelerationOnBeat = false;
+
     [Tooltip("How much velocity is maintained after bouncing.")]
     [Range(0.0f, 2.0f)]
     public float defaultBounciness;
@@ -244,6 +247,10 @@ public class ChapaScript : MonoBehaviour
 
         if (alwaysPressed || Input.GetMouseButton(0))
         {
+            if (resetAccelerationOnBeat)
+            {
+                velocity = Vector2.zero;
+            }
             lastDirection = mouseDirection;
             if (accelerationTime == 0f)
             {
