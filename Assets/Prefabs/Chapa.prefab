@@ -105,9 +105,10 @@ MonoBehaviour:
   accelerationAmount: 35.7
   accelerationTime: 0
   defaultFloorDrag: 4.64
+  freeClick: 0
   alwaysPressed: 1
   allowBrake: 0
-  bounciness: 1.15
+  defaultBounciness: 1
   invertDirection: 0
   airTime: 0
   airDrag: 0.61

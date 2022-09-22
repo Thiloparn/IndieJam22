@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2929250022616537658}
   - component: {fileID: 2070402692}
   - component: {fileID: 2070402693}
+  - component: {fileID: 6445252946258904075}
   m_Layer: 6
   m_Name: CircleBouncer
   m_TagString: Untagged
@@ -101,3 +102,16 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &6445252946258904075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020017119266936137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a794d6efae9a22b44823a4b99929f1ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounciness: 1.15

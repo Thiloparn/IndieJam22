@@ -34,7 +34,7 @@ public class ChapaScript : MonoBehaviour
 
     [Tooltip("How much velocity is maintained after bouncing.")]
     [Range(0.0f, 2.0f)]
-    public float bounciness;
+    public float defaultBounciness;
 
     [Tooltip("If true, the chapa will be pushed by the mouse instead of pulled.")]
     public bool invertDirection = false;
@@ -142,6 +142,12 @@ public class ChapaScript : MonoBehaviour
         // while (hit.collider != null)
         if (hit.collider != null)
         {
+            float bounciness = defaultBounciness;
+            WallScript curWall = hit.collider.GetComponent<WallScript>();
+            if (curWall != null)
+            {
+                bounciness = curWall.bounciness;
+            }
             velocity = Vector2.Reflect(velocity, hit.normal) * bounciness;
             if (hit.distance == 0f)
             {
