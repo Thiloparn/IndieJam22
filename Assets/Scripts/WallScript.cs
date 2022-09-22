@@ -11,7 +11,7 @@ public class WallScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gameObject.layer = LayerMask.NameToLayer("Walls"); ;
     }
 
     // Update is called once per frame

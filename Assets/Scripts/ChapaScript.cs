@@ -20,7 +20,7 @@ public class ChapaScript : MonoBehaviour
     [Tooltip("If greater than 0, it will apply the accelerationAmount a lo largo de esta cantidad de segundos.")]
     public float accelerationTime;
 
-    [Range(0.0f, 10.0f)]
+    [Range(0.0f, 20.0f)]
     public float defaultFloorDrag;
 
     [Tooltip("If true, beats are triggered by clicking instead of the beat.")]
@@ -31,6 +31,9 @@ public class ChapaScript : MonoBehaviour
 
     [Tooltip("If true, right mouse button will stop the chapa.")]
     public bool allowBrake;
+
+    [Tooltip("If true, not having a floor will be taken as a hole.")]
+    public bool defaultToHole = false;
 
     [Tooltip("How much velocity is maintained after bouncing.")]
     [Range(0.0f, 2.0f)]
@@ -125,29 +128,53 @@ public class ChapaScript : MonoBehaviour
         else
         {
             curDrag = defaultFloorDrag;
-            RaycastHit2D floorHit = Physics2D.CircleCast(position, chapaRadius, Vector2.zero, 0.0f, floorsMask);
-            if (floorHit.collider != null)
+            RaycastHit2D[] floorHits = Physics2D.CircleCastAll(position, chapaRadius, Vector2.zero, 0.0f, floorsMask);
+            bool fellToHole = false;
+            if (floorHits.Length > 0)
             {
-                FloorScript curFloor = floorHit.collider.GetComponent<FloorScript>();
-                if (curFloor != null)
+                RaycastHit2D floorHit = floorHits[0];
+                float lowestZ = floorHit.transform.position.z;
+                for (int k = 0; k < floorHits.Length; k++)
                 {
-                    if (curFloor.isHole && previousPositions.Count > 0)
+                    if (floorHits[k].transform.position.z < lowestZ)
                     {
-                        int nToRemove = Mathf.Min(holePenalty - 1, previousPositions.Count - 1);
-                        previousPositions.RemoveRange(previousPositions.Count - nToRemove, nToRemove);
-                        position = previousPositions[previousPositions.Count - 1];
-                        transform.position = position;
-                        velocity = Vector2.zero;
-                        remainingTimeOnAir = 0f;
-                        timeSinceLastBeat = 0f;
-                        lastDirection = Vector2.zero;
-                        return;
-                    }
-                    else
-                    {
-                        curDrag = curFloor.drag;
+                        floorHit = floorHits[k];
+                        lowestZ = floorHit.transform.position.z;
                     }
                 }
+                if (floorHit.collider != null)
+                {
+                    FloorScript curFloor = floorHit.collider.GetComponent<FloorScript>();
+                    if (curFloor != null)
+                    {
+                        if (curFloor.isHole)
+                        {
+                            fellToHole = true;
+                        }
+                        curDrag = curFloor.drag;
+                    }
+                    else if (defaultToHole)
+                    {
+                        fellToHole = true;
+                    }
+                }
+            }
+            else if (defaultToHole)
+            {
+                fellToHole = true;
+            }
+
+            if (fellToHole && previousPositions.Count > 0)
+            {
+                int nToRemove = Mathf.Min(holePenalty - 1, previousPositions.Count);
+                previousPositions.RemoveRange(previousPositions.Count - nToRemove, nToRemove);
+                position = previousPositions[previousPositions.Count - 1];
+                transform.position = position;
+                velocity = Vector2.zero;
+                remainingTimeOnAir = 0f;
+                timeSinceLastBeat = 0f;
+                lastDirection = Vector2.zero;
+                return;
             }
         }
 

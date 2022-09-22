@@ -112,6 +112,7 @@ MonoBehaviour:
   invertDirection: 0
   airTime: 0
   airDrag: 0.61
+  holePenalty: 2
   backgroundMainColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   backgroundBeatColor: {r: 0.21568628, g: 0.34117648, b: 0.5372549, a: 0}
 --- !u!198 &200111420853148709
