@@ -79,6 +79,8 @@ public class ChapaScript : MonoBehaviour
         wallsMask = LayerMask.GetMask("Walls");
 
         previousPositions = new List<Vector2>(maxPositionsStored);
+
+        position = transform.position;
     }
 
     // Update is called once per frame
