@@ -4949,11 +4949,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: freeClick
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: alwaysPressed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: defaultToHole
@@ -6680,11 +6680,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1554560262, guid: 15d87eaac73424245b16b38e0150bc80, type: 3}
       propertyPath: predictMoveSpeed
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1554560262, guid: 15d87eaac73424245b16b38e0150bc80, type: 3}
       propertyPath: predictTurnSpeed
-      value: 0.03
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 3041006272793853469, guid: 15d87eaac73424245b16b38e0150bc80, type: 3}
       propertyPath: m_Name
