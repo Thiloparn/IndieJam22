@@ -59,6 +59,7 @@ public class ChapaScript : MonoBehaviour
     float timeSinceLastBeat = 0f;
 
     Vector2 lastDirection = Vector2.zero;
+    Vector2 mouseDirection = Vector2.zero;
 
     // temp variables, for debugging
     public Color backgroundMainColor;
@@ -94,6 +95,14 @@ public class ChapaScript : MonoBehaviour
             timeSinceLastBeat = 0f;
             lastDirection = Vector2.zero;
         }
+
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseDirection = (mousePos - position).normalized;
+        if (invertDirection)
+        {
+            mouseDirection *= -1f;
+        }
+        transform.rotation = Quaternion.FromToRotation(Vector3.right, mouseDirection);
 
         remainingTimeOnAir = Mathf.Max(0f, remainingTimeOnAir - Time.deltaTime);
 
@@ -234,14 +243,7 @@ public class ChapaScript : MonoBehaviour
 
         if (alwaysPressed || Input.GetMouseButton(0))
         {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            lastDirection = (mousePos - position).normalized;
-
-            if (invertDirection)
-            {
-                lastDirection *= -1f;
-            }
-
+            lastDirection = mouseDirection;
             if (accelerationTime == 0f)
             {
                 velocity += accelerationAmount * lastDirection;
