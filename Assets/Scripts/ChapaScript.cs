@@ -74,10 +74,18 @@ public class ChapaScript : MonoBehaviour
     LayerMask wallsMask;
     LayerMask floorsMask;
 
+
+    //SONIDO
+    private FMOD.Studio.EventInstance caidaInstance;
+    private FMOD.Studio.EventInstance chorlitoInstance;
+    private FMOD.Studio.EventInstance reboteInstance;
+    private FMOD.Studio.EventInstance choqueInstance;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        // dirty hack
+        // dirty hack <- shame on you
         chapaRadius = transform.localScale.x / 2f;
 
         floorsMask = LayerMask.GetMask("Floors");
@@ -86,6 +94,12 @@ public class ChapaScript : MonoBehaviour
         previousPositions = new List<Vector2>(maxPositionsStored);
 
         position = transform.position;
+
+        // SONIDO
+        caidaInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Caída");
+        chorlitoInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Chorlito");
+        reboteInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Rebote");
+        choqueInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Choque");
     }
 
     // Update is called once per frame
@@ -183,6 +197,9 @@ public class ChapaScript : MonoBehaviour
 
             if (fellToHole && previousPositions.Count > 0)
             {
+                //SONIDO
+                caidaInstance.start();
+
                 int nToRemove = Mathf.Min(holePenalty - 1, previousPositions.Count);
                 previousPositions.RemoveRange(previousPositions.Count - nToRemove, nToRemove);
                 position = previousPositions[previousPositions.Count - 1];
@@ -213,6 +230,12 @@ public class ChapaScript : MonoBehaviour
             if (curWall != null)
             {
                 bounciness = curWall.bounciness;
+
+                //SONIDO
+                if(bounciness < 0.5)
+                    choqueInstance.start();
+                else
+                    reboteInstance.start();
             }
             velocity = Vector2.Reflect(velocity, hit.normal) * bounciness;
             if (hit.distance == 0f)
@@ -249,6 +272,10 @@ public class ChapaScript : MonoBehaviour
 
         if (alwaysPressed || Input.GetMouseButton(0))
         {
+            //SONIDO
+            chorlitoInstance.start();
+
+
             if (resetAccelerationOnBeat)
             {
                 velocity = Vector2.zero;
