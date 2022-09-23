@@ -96,7 +96,7 @@ public class ChapaScript : MonoBehaviour
         position = transform.position;
 
         // SONIDO
-        caidaInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Caída");
+        caidaInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Caï¿½da");
         chorlitoInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Chorlito");
         reboteInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Rebote");
         choqueInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Choque");
@@ -143,10 +143,10 @@ public class ChapaScript : MonoBehaviour
 
         if (accelerationTime > 0f && timeSinceLastBeat < accelerationTime)
         {
-			
-				velocity += accelerationAmount * lastDirection * Time.deltaTime / accelerationTime;
-		
-		}
+
+            velocity += accelerationAmount * lastDirection * Time.deltaTime / accelerationTime;
+
+        }
     }
 
     void FixedUpdate()
@@ -232,12 +232,16 @@ public class ChapaScript : MonoBehaviour
                 bounciness = curWall.bounciness;
 
                 //SONIDO
-                if(bounciness < 0.5)
+                if (bounciness < 0.5)
                     choqueInstance.start();
                 else
                     reboteInstance.start();
             }
             velocity = Vector2.Reflect(velocity, hit.normal) * bounciness;
+            if (accelerationTime > 0f && timeSinceLastBeat < accelerationTime)
+            {
+                lastDirection = Vector2.Reflect(lastDirection, hit.normal);
+            }
             if (hit.distance == 0f)
             {
                 // we might be inside a thing
@@ -291,7 +295,7 @@ public class ChapaScript : MonoBehaviour
         if (allowBrake && Input.GetMouseButton(1))
         {
             velocity = Vector2.zero;
-			Debug.Log(velocity);
+            Debug.Log(velocity);
         }
     }
 
