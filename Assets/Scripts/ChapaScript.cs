@@ -129,8 +129,10 @@ public class ChapaScript : MonoBehaviour
 
         if (accelerationTime > 0f && timeSinceLastBeat < accelerationTime)
         {
-            velocity += accelerationAmount * lastDirection * Time.deltaTime / accelerationTime;
-        }
+			
+				velocity += accelerationAmount * lastDirection * Time.deltaTime / accelerationTime;
+		
+		}
     }
 
     void FixedUpdate()
@@ -262,6 +264,7 @@ public class ChapaScript : MonoBehaviour
         if (allowBrake && Input.GetMouseButton(1))
         {
             velocity = Vector2.zero;
+			Debug.Log(velocity);
         }
     }
 
