@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &24829308
 BoxCollider2D:
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &54838417
 BoxCollider2D:
@@ -304,7 +304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalScale.x
@@ -399,7 +399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalScale.x
@@ -415,11 +415,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.61
+      value: 37.76
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -52.53
+      value: -54.32
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -427,7 +427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5526851
+      value: 0.88103527
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalRotation.x
@@ -439,7 +439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.8333902
+      value: 0.4730506
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -451,7 +451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 112.897
+      value: 56.465
       objectReference: {fileID: 0}
     - target: {fileID: 4184728111903671283, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_Name
@@ -583,7 +583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &143897913
 BoxCollider2D:
@@ -636,7 +636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929250022616537658, guid: 2828d9f982475ba4faa5a5a8f596bfab, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2929250022616537658, guid: 2828d9f982475ba4faa5a5a8f596bfab, type: 3}
       propertyPath: m_LocalScale.x
@@ -839,7 +839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &200241907
 BoxCollider2D:
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &319559869
 BoxCollider2D:
@@ -1250,7 +1250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &354756674
 BoxCollider2D:
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &357075547
 BoxCollider2D:
@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &357383001
 BoxCollider2D:
@@ -1469,7 +1469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &371268984
 BoxCollider2D:
@@ -1542,7 +1542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &400950610
 BoxCollider2D:
@@ -1816,7 +1816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &467754228
 BoxCollider2D:
@@ -1889,7 +1889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &472467883
 BoxCollider2D:
@@ -2038,96 +2038,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
   m_PrefabInstance: {fileID: 2042030204}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &532155360 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-  m_PrefabInstance: {fileID: 545912983}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &545912983
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1576004173}
-    m_Modifications:
-    - target: {fileID: 807888766, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 807888766, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_Color.g
-      value: 0.44424558
-      objectReference: {fileID: 0}
-    - target: {fileID: 807888766, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1284762261650416895, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: bounciness
-      value: 0.218
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.8522317
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.92888415
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.9288844
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.56
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -10.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: -0.060712367
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.9981553
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 186.961
-      objectReference: {fileID: 0}
-    - target: {fileID: 4184728111903671283, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
-      propertyPath: m_Name
-      value: BoxWall (3)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
 --- !u!1 &552724825
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,7 +2083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &552724828
 BoxCollider2D:
@@ -2251,7 +2161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &615411458
 BoxCollider2D:
@@ -2329,7 +2239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &673335069
 BoxCollider2D:
@@ -2407,7 +2317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &690124697
 BoxCollider2D:
@@ -2480,7 +2390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &706615637
 BoxCollider2D:
@@ -2669,7 +2579,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &720410904
 BoxCollider2D:
@@ -2742,7 +2652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &734944176
 BoxCollider2D:
@@ -2815,7 +2725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &739536743
 BoxCollider2D:
@@ -2960,7 +2870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &759550624
 BoxCollider2D:
@@ -3202,7 +3112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &804045219
 BoxCollider2D:
@@ -3280,7 +3190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &822166876
 BoxCollider2D:
@@ -3564,7 +3474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &876743743
 BoxCollider2D:
@@ -3637,7 +3547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &898737218
 BoxCollider2D:
@@ -3800,7 +3710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &968200254
 BoxCollider2D:
@@ -3873,7 +3783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1000231984
 BoxCollider2D:
@@ -3946,7 +3856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1010561397
 BoxCollider2D:
@@ -4093,7 +4003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1075012115
 BoxCollider2D:
@@ -4424,7 +4334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1145740986
 BoxCollider2D:
@@ -4582,7 +4492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1218282416
 BoxCollider2D:
@@ -4908,7 +4818,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1290738184
 BoxCollider2D:
@@ -4944,11 +4854,23 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
+      propertyPath: airDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
+      propertyPath: airTime
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: floorDrag
       value: 3.84
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: freeClick
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
+      propertyPath: allowBrake
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
@@ -4965,19 +4887,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: accelerationTime
-      value: 0.1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: defaultFloorDrag
-      value: 20
+      value: 7.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
+      propertyPath: defaultBounciness
+      value: 1.66
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: accelerationAmount
-      value: 178
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: secondsBetweenBeats
-      value: 0.624
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: backgroundBeatColor.b
@@ -4990,6 +4916,10 @@ PrefabInstance:
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: backgroundBeatColor.r
       value: 0.23073158
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
+      propertyPath: resetAccelerationOnBeat
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5071639640549377536, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: m_RootOrder
@@ -5214,7 +5144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1333918195
 BoxCollider2D:
@@ -5614,7 +5544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1453031577
 BoxCollider2D:
@@ -5926,7 +5856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1512317858
 BoxCollider2D:
@@ -6101,7 +6031,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalScale.x
@@ -6117,11 +6047,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.48
+      value: 29.11
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -32.88
+      value: -33.59
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6129,7 +6059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.30272895
+      value: -0.2586703
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalRotation.x
@@ -6141,7 +6071,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.9530768
+      value: 0.9659657
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6153,7 +6083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 144.757
+      value: 209.982
       objectReference: {fileID: 0}
     - target: {fileID: 4184728111903671283, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_Name
@@ -6206,7 +6136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1550675418
 BoxCollider2D:
@@ -6265,7 +6195,6 @@ Transform:
   - {fileID: 292054080}
   - {fileID: 1722824353}
   - {fileID: 1025982447}
-  - {fileID: 532155360}
   - {fileID: 1118220601}
   - {fileID: 937263657}
   - {fileID: 15721823}
@@ -6619,7 +6548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1624533152
 BoxCollider2D:
@@ -6781,7 +6710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1665324498
 BoxCollider2D:
@@ -7406,6 +7335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1790262973360549257, guid: 14fdf88c43d55a049a7782c094cb969a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1790262973360549263, guid: 14fdf88c43d55a049a7782c094cb969a, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -7497,7 +7430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1863488685
 BoxCollider2D:
@@ -7802,7 +7735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &1900476043
 BoxCollider2D:
@@ -8696,11 +8629,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.54
+      value: 2.05
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -17.18
+      value: -17.56
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8708,7 +8641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.20225409
+      value: 0.54383606
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalRotation.x
@@ -8720,7 +8653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.9793331
+      value: 0.8391915
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8732,7 +8665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3611919849119647047, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 156.662
+      value: 114.11
       objectReference: {fileID: 0}
     - target: {fileID: 4184728111903671283, guid: b547bc16465c78c459c3f6c724cfa9ff, type: 3}
       propertyPath: m_Name
@@ -9129,7 +9062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 7.54
+  drag: 1.8
   isHole: 0
 --- !u!61 &2050226082
 BoxCollider2D:

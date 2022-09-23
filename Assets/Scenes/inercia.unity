@@ -1513,7 +1513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: defaultToHole
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4767231076294197791, guid: d49588d594ca4e0499c3c55bba625a60, type: 3}
       propertyPath: accelerationTime
