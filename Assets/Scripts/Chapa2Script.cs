@@ -159,7 +159,8 @@ public class Chapa2Script : MonoBehaviour
             }
         }
 
-        cameraScript.SetPathPos(closestTile.cameraPath.GetPoint(closestTileTime));
+        float closestTilePercentage = closestTile.trackPath.evenlySpacedPoints.GetPercentageAtNormalizedT(closestTileTime);
+        cameraScript.SetPathPos(closestTile.cameraPath.GetPoint(closestTile.cameraPath.evenlySpacedPoints.GetNormalizedTAtPercentage(closestTilePercentage)));
 
         bool fellToHole = false;
         if (closestTileDistanceSq * 4 < trackMainWidth * trackMainWidth)
