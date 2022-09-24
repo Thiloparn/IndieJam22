@@ -80,7 +80,6 @@ public class BeatManager : MonoBehaviour
             {
                 float diff = Mathf.Abs(timePassed - lastBeat.instant);
                 float timeMargin = beatTime * errorMargin;
-                Debug.Log(timeMargin);
 
                 // Estamos dentro del margen del Beat -> ACIERTO
                 if (diff < (timeMargin) ||
