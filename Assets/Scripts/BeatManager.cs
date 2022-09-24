@@ -26,6 +26,7 @@ public class BeatManager : MonoBehaviour
     public FMODUnity.EventReference cancion;
 
     [Tooltip("Porcentaje de error que se le permite al jugador al clicar en el beat")]
+    [Range(0f, 1.0f)]
     public float errorMargin = 0.1f;
 
     // FMOD
