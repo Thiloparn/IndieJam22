@@ -8,6 +8,8 @@ public class FloorScript : MonoBehaviour
     [Range(0f, 20f)]
     public float drag = 0f;
 
+    public FloorType type;
+
     public bool isHole = false;
 
     // Start is called before the first frame update

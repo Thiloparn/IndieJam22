@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum FloorType { TrackMain, TrackBorder, Hole, Mud, Ice }
+
 public class Chapa2Script : MonoBehaviour
 {
 
@@ -9,6 +11,8 @@ public class Chapa2Script : MonoBehaviour
     public Vector2 position = Vector2.zero;
     [HideInInspector]
     public Vector2 velocity = Vector2.zero;
+    [HideInInspector]
+    public FloorType curFloorType;
 
     [Range(0.0f, 500.0f)]
     public float accelerationAmount;
@@ -167,11 +171,13 @@ public class Chapa2Script : MonoBehaviour
         {
             curDrag = trackMainDrag;
             // Debug.Log("track");
+            curFloorType = FloorType.TrackMain;
         }
         else if (closestTileDistanceSq * 4 < trackOutWidth * trackOutWidth)
         {
             curDrag = trackOutDrag;
             // Debug.Log("mud");
+            curFloorType = FloorType.TrackBorder;
         }
         else
         {
@@ -180,10 +186,12 @@ public class Chapa2Script : MonoBehaviour
             {
                 fellToHole = true;
                 curDrag = 1f;
+                curFloorType = FloorType.Hole;
             }
             else
             {
                 curDrag = trackOutDrag;
+                curFloorType = FloorType.TrackBorder;
             }
         }
 
@@ -205,11 +213,12 @@ public class Chapa2Script : MonoBehaviour
                 FloorScript curFloor = floorHit.collider.GetComponent<FloorScript>();
                 if (curFloor != null)
                 {
-                    if (curFloor.isHole)
+                    if (curFloor.type == FloorType.Hole)
                     {
                         fellToHole = true;
                     }
                     curDrag = curFloor.drag;
+                    curFloorType = curFloor.type;
                 }
             }
         }
