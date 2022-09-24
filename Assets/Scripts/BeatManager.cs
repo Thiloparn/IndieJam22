@@ -6,9 +6,9 @@ using System;
 using System.Runtime.InteropServices;
 using System.Text;
 
-public enum ClickType { Hit, Miss, Unused}
+public enum ClickType { Hit, Miss, Unused }
 
-public struct Beat 
+public struct Beat
 {
     // Si se ha acertado
     public ClickType click;
@@ -28,6 +28,11 @@ public class BeatManager : MonoBehaviour
     [Tooltip("Porcentaje de error que se le permite al jugador al clicar en el beat")]
     [Range(0f, 1.0f)]
     public float errorMargin = 0.1f;
+
+    public Chapa2Script chapaScript;
+    // temp variables, for debugging
+    public Color backgroundMainColor;
+    public Color backgroundBeatColor;
 
     // FMOD
     private FMOD.Studio.EventInstance songInstance;
@@ -73,10 +78,10 @@ public class BeatManager : MonoBehaviour
     void Update()
     {
         // Hacemos click...
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
             // Solo nos interesa si es la primera vez que hacemos click en este beat
-            if(lastBeat.click == ClickType.Unused)
+            if (lastBeat.click == ClickType.Unused)
             {
                 float diff = Mathf.Abs(timePassed - lastBeat.instant);
                 float timeMargin = beatTime * errorMargin;
@@ -106,29 +111,33 @@ public class BeatManager : MonoBehaviour
         }
 
         // Pausar la canci�n
-        if (Input.GetKeyDown(KeyCode.P)) 
+        if (Input.GetKeyDown(KeyCode.P))
         {
             paused = !paused;
             songInstance.setPaused(paused);
             Debug.Log("PAUSED");
         }
-            
-        
+
+        float t = (timePassed - lastBeat.instant) / beatTime;
+        Camera.main.backgroundColor = Color.Lerp(backgroundBeatColor, backgroundMainColor, t * t);
+
         timePassed += Time.deltaTime;
     }
 
-    private float Accuracy(float diff, float beatTime) 
+    private float Accuracy(float diff, float beatTime)
     {
         return (diff / (beatTime / 2) - 1) / (-1);
     }
 
     private void BeatHit(float accuracy = 1)
     {
+        chapaScript.BeatHit(accuracy);
         Debug.Log("Beat " + beatCounter + " HIT (" + (int)(accuracy * 100f) + "%)");
     }
 
     private void BeatMiss()
     {
+        chapaScript.BeatMiss();
         Debug.Log("Beat " + beatCounter + " MISS");
     }
 
@@ -168,10 +177,10 @@ public class BeatManager : MonoBehaviour
     }
 
     // Acaba el beat
-    private void EndBeat() 
+    private void EndBeat()
     {
         // Se ha terminado el beat y no hemos clicado
-        if(lastBeat.no < beatCounter && lastBeat.click == ClickType.Unused) 
+        if (lastBeat.no < beatCounter && lastBeat.click == ClickType.Unused)
         {
             lastBeat.click = ClickType.Miss;
             lastBeat.no = beatCounter;

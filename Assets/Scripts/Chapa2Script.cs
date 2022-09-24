@@ -10,9 +10,6 @@ public class Chapa2Script : MonoBehaviour
     [HideInInspector]
     public Vector2 velocity = Vector2.zero;
 
-    [Range(0.01f, 2.0f)]
-    public float secondsBetweenBeats;
-
     [Range(0.0f, 500.0f)]
     public float accelerationAmount;
 
@@ -31,9 +28,6 @@ public class Chapa2Script : MonoBehaviour
 
     [Range(0.0f, 50.0f)]
     public float trackOutWidth = 13.5f;
-
-    [Tooltip("If true, beats are triggered by clicking instead of the beat.")]
-    public bool freeClick;
 
     [Tooltip("If true, act as if mouse was pressed every beat.")]
     public bool alwaysPressed;
@@ -74,10 +68,6 @@ public class Chapa2Script : MonoBehaviour
     [HideInInspector]
     public Vector2 mouseDirection = Vector2.zero;
 
-    // temp variables, for debugging
-    public Color backgroundMainColor;
-    public Color backgroundBeatColor;
-
     float chapaRadius;
 
     LayerMask wallsMask;
@@ -108,7 +98,7 @@ public class Chapa2Script : MonoBehaviour
         position = transform.position;
 
         // SONIDO
-        caidaInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Ca�da");
+        caidaInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Caída");
         chorlitoInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Chorlito");
         reboteInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Rebote");
         choqueInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Choque");
@@ -137,21 +127,6 @@ public class Chapa2Script : MonoBehaviour
         remainingTimeOnAir = Mathf.Max(0f, remainingTimeOnAir - Time.deltaTime);
 
         timeSinceLastBeat += Time.deltaTime;
-        if (freeClick)
-        {
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
-            {
-                timeSinceLastBeat = 0f;
-                Beat();
-            }
-        }
-        else if (timeSinceLastBeat > secondsBetweenBeats)
-        {
-            timeSinceLastBeat %= secondsBetweenBeats;
-            Beat();
-        }
-
-        Camera.main.backgroundColor = Color.Lerp(backgroundBeatColor, backgroundMainColor, (timeSinceLastBeat / secondsBetweenBeats) * (timeSinceLastBeat / secondsBetweenBeats));
 
         if (accelerationTime > 0f && timeSinceLastBeat < accelerationTime)
         {
@@ -315,7 +290,7 @@ public class Chapa2Script : MonoBehaviour
         transform.position = position;
     }
 
-    void Beat()
+    public void BeatHit(float accuracy)
     {
         if (previousPositions.Count >= maxPositionsStored)
         {
@@ -323,28 +298,30 @@ public class Chapa2Script : MonoBehaviour
         }
         previousPositions.Add(position + Vector2.zero);
 
-        if (alwaysPressed || Input.GetMouseButton(0))
-        {
-            //SONIDO
-            chorlitoInstance.start();
+        timeSinceLastBeat = 0f;
+
+        //SONIDO
+        chorlitoInstance.start();
+        Debug.Log("sound");
 
 
-            if (resetAccelerationOnBeat)
-            {
-                velocity = Vector2.zero;
-            }
-            lastDirection = mouseDirection;
-            if (accelerationTime == 0f)
-            {
-                velocity += accelerationAmount * lastDirection;
-            }
-            remainingTimeOnAir = airTime;
-        }
-
-        if (allowBrake && Input.GetMouseButton(1))
+        if (resetAccelerationOnBeat)
         {
             velocity = Vector2.zero;
-            Debug.Log(velocity);
+        }
+        lastDirection = mouseDirection;
+        if (accelerationTime == 0f)
+        {
+            velocity += accelerationAmount * lastDirection;
+        }
+        remainingTimeOnAir = airTime;
+    }
+
+    public void BeatMiss()
+    {
+        if (allowBrake)
+        {
+            velocity = Vector2.zero;
         }
     }
 
