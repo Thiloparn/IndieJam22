@@ -279,6 +279,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &68496792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1790262973360549257, guid: 14fdf88c43d55a049a7782c094cb969a, type: 3}
+  m_PrefabInstance: {fileID: 1861083350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &68496796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68496792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529440ed6373057489aba6b7950aae90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cancion:
+    Guid:
+      Data1: -575293094
+      Data2: 1133668006
+      Data3: -95429718
+      Data4: 320480953
+    Path: event:/Cyberchapas
+  errorMargin: 0.2
 --- !u!1001 &81085770
 PrefabInstance:
   m_ObjectHideFlags: 0

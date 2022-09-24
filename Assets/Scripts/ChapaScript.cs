@@ -96,10 +96,11 @@ public class ChapaScript : MonoBehaviour
         position = transform.position;
 
         // SONIDO
-        caidaInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Ca�da");
+        caidaInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Caída");
         chorlitoInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Chorlito");
         reboteInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Rebote");
         choqueInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Choque");
+
     }
 
     // Update is called once per frame
