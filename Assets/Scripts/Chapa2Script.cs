@@ -86,6 +86,7 @@ public class Chapa2Script : MonoBehaviour
     private FMOD.Studio.EventInstance chorlitoInstance;
     private FMOD.Studio.EventInstance reboteInstance;
     private FMOD.Studio.EventInstance choqueInstance;
+    private FMOD.Studio.EventInstance barroInstance;
 
 
     // Start is called before the first frame update
@@ -106,6 +107,7 @@ public class Chapa2Script : MonoBehaviour
         chorlitoInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Chorlito");
         reboteInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Rebote");
         choqueInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Choque");
+        barroInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Barro");
     }
 
     // Update is called once per frame
@@ -312,6 +314,11 @@ public class Chapa2Script : MonoBehaviour
 
         //SONIDO
         chorlitoInstance.start();
+        // Suelo que ralentiza
+        if (curFloorType == FloorType.Mud || curFloorType == FloorType.TrackBorder)
+            barroInstance.start();
+        //else if (curFloorType == FloorType.Ice)
+            //TODO
         Debug.Log("sound");
 
 
