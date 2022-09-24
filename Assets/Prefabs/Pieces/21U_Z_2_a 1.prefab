@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &5682767210636780399
 CircleCollider2D:
@@ -820,6 +821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &5220870518700108745
 CircleCollider2D:
@@ -936,6 +938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &9053448372222132122
 CircleCollider2D:
@@ -1260,6 +1263,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2325316126800442278}
     m_Modifications:
+    - target: {fileID: 3413018688373402998, guid: d2d3023a58475ad42ba16e362a2e9cc1, type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3413018688373403000, guid: d2d3023a58475ad42ba16e362a2e9cc1, type: 3}
       propertyPath: m_Name
       value: CircleMud (3)

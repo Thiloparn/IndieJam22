@@ -331,6 +331,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &1668460468532469198
 CircleCollider2D:
@@ -669,6 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &5756226095732883522
 CircleCollider2D:
@@ -960,6 +962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &6494596098308563778
 CircleCollider2D:

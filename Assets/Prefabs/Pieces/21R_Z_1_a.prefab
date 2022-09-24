@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &601836896175790589
 CircleCollider2D:
@@ -509,6 +510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &7497343031837611865
 CircleCollider2D:
@@ -741,6 +743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &2863222431636792833
 CircleCollider2D:
@@ -857,6 +860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &654303143092971358
 CircleCollider2D:
@@ -1031,6 +1035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &3461722176405908184
 CircleCollider2D:
@@ -1147,6 +1152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &5372529462185548797
 CircleCollider2D:
@@ -1579,6 +1585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &218851077798827505
 CircleCollider2D:
@@ -1753,6 +1760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &6903094112589937101
 CircleCollider2D:
@@ -1869,6 +1877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &5919289466255775443
 CircleCollider2D:

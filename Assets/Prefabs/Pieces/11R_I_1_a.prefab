@@ -515,6 +515,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CircleIce
       objectReference: {fileID: 0}
+    - target: {fileID: 2723149991312922617, guid: 282c0e677204b334e906bff600c159aa, type: 3}
+      propertyPath: type
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 282c0e677204b334e906bff600c159aa, type: 3}
 --- !u!4 &3692488722661464098 stripped

@@ -646,6 +646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &1551790981639680413
 CircleCollider2D:
@@ -820,6 +821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &7299402974676093113
 CircleCollider2D:
@@ -994,6 +996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 2
   isHole: 1
 --- !u!58 &6041673289222666451
 CircleCollider2D:
@@ -1078,6 +1081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CircleIce (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 2723149991312922617, guid: 282c0e677204b334e906bff600c159aa, type: 3}
+      propertyPath: type
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 282c0e677204b334e906bff600c159aa, type: 3}
 --- !u!4 &2581337976449010820 stripped
@@ -1151,6 +1158,10 @@ PrefabInstance:
     - target: {fileID: 2723149991312922615, guid: 282c0e677204b334e906bff600c159aa, type: 3}
       propertyPath: m_Name
       value: CircleIce (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723149991312922617, guid: 282c0e677204b334e906bff600c159aa, type: 3}
+      propertyPath: type
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 282c0e677204b334e906bff600c159aa, type: 3}
@@ -1226,6 +1237,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CircleIce (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 2723149991312922617, guid: 282c0e677204b334e906bff600c159aa, type: 3}
+      propertyPath: type
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 282c0e677204b334e906bff600c159aa, type: 3}
 --- !u!4 &4031135898419345887 stripped
@@ -1299,6 +1314,10 @@ PrefabInstance:
     - target: {fileID: 2723149991312922615, guid: 282c0e677204b334e906bff600c159aa, type: 3}
       propertyPath: m_Name
       value: CircleIce (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723149991312922617, guid: 282c0e677204b334e906bff600c159aa, type: 3}
+      propertyPath: type
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 282c0e677204b334e906bff600c159aa, type: 3}

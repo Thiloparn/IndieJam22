@@ -456,6 +456,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2325316126800442278}
     m_Modifications:
+    - target: {fileID: 3413018688373402998, guid: d2d3023a58475ad42ba16e362a2e9cc1, type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3413018688373403000, guid: d2d3023a58475ad42ba16e362a2e9cc1, type: 3}
       propertyPath: m_Name
       value: CircleMud (4)
@@ -530,6 +534,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2325316126800442278}
     m_Modifications:
+    - target: {fileID: 3413018688373402998, guid: d2d3023a58475ad42ba16e362a2e9cc1, type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3413018688373403000, guid: d2d3023a58475ad42ba16e362a2e9cc1, type: 3}
       propertyPath: m_Name
       value: CircleMud (3)
