@@ -206,7 +206,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150050385}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.44, y: -0.23, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -613,7 +613,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 750214823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.658337, y: 0, z: 1}
+  m_LocalPosition: {x: 23.071024, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -632,11 +632,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: 30.098335, y: -0.23, z: 11}
+  m_position: {x: 23.071024, y: 0, z: 11}
   m_precedingControlPointLocalPosition: {x: -1, y: 0, z: 0}
-  m_precedingControlPointPosition: {x: 29.098335, y: -0.23, z: 11}
+  m_precedingControlPointPosition: {x: 22.071024, y: 0, z: 11}
   m_followingControlPointLocalPosition: {x: 1, y: 0, z: 0}
-  m_followingControlPointPosition: {x: 31.098335, y: -0.23, z: 11}
+  m_followingControlPointPosition: {x: 24.071024, y: 0, z: 11}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -787,7 +787,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015610216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.58828, y: 0.27601624, z: -1}
+  m_LocalPosition: {x: -7.8243275, y: 0.27601624, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -806,11 +806,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: -2.1482801, y: 0.04601623, z: 9}
+  m_position: {x: -7.8243275, y: 0.27601624, z: 9}
   m_precedingControlPointLocalPosition: {x: -1, y: 0, z: 0}
-  m_precedingControlPointPosition: {x: -3.1482801, y: 0.04601623, z: 9}
+  m_precedingControlPointPosition: {x: -8.824327, y: 0.27601624, z: 9}
   m_followingControlPointLocalPosition: {x: 1, y: 0, z: 0}
-  m_followingControlPointPosition: {x: -1.1482801, y: 0.04601623, z: 9}
+  m_followingControlPointPosition: {x: -6.8243275, y: 0.27601624, z: 9}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
