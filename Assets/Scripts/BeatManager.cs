@@ -13,16 +13,16 @@ public struct Beat
     // Si se ha acertado
     public ClickType click;
 
-    // Número de beat que es
+    // Nï¿½mero de beat que es
     public int no;
 
-    // Instante (desde que empieza la canción) del beat
+    // Instante (desde que empieza la canciï¿½n) del beat
     public float instant;
 }
 
 public class BeatManager : MonoBehaviour
 {
-    [Tooltip("Selecciona una canción para que suene en esta escena")]
+    [Tooltip("Selecciona una canciï¿½n para que suene en esta escena")]
     public FMODUnity.EventReference cancion;
 
     [Tooltip("Porcentaje de error que se le permite al jugador al clicar en el beat")]
@@ -33,7 +33,7 @@ public class BeatManager : MonoBehaviour
     private FMOD.Studio.EventInstance songInstance;
     private FMOD.Studio.EVENT_CALLBACK cb;
 
-    // Número de beats que llevamos
+    // Nï¿½mero de beats que llevamos
     int beatCounter;
 
     // Tiempo total transcurrido
@@ -44,7 +44,7 @@ public class BeatManager : MonoBehaviour
 
     bool paused;
 
-    // Beat actual y el último
+    // Beat actual y el ï¿½ltimo
     Beat lastBeat;
 
 
@@ -90,7 +90,7 @@ public class BeatManager : MonoBehaviour
                         accuracy = Accuracy(diff, beatTime);
                     else
                         accuracy = Accuracy(beatTime - diff, beatTime);
-                    // Actualizamos el nº de beat
+                    // Actualizamos el nï¿½ de beat
                     lastBeat.click = ClickType.Hit;
                     lastBeat.no = beatCounter;
                     BeatHit(accuracy);
@@ -105,7 +105,7 @@ public class BeatManager : MonoBehaviour
             }
         }
 
-        // Pausar la canción
+        // Pausar la canciï¿½n
         if (Input.GetKeyDown(KeyCode.P)) 
         {
             paused = !paused;
@@ -185,6 +185,7 @@ public class BeatManager : MonoBehaviour
 
     private void OnDestroy()
     {
+        songInstance.setCallback(null);
         songInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT); //INMEDIATE
         songInstance.release();
     }
