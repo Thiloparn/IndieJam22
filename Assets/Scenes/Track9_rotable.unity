@@ -380,7 +380,8 @@ MonoBehaviour:
   maxHeight: 5
   tilePrefabs:
   - {fileID: 2745384554232715582, guid: 5072f0210a8fa994baba05a04f6b2622, type: 3}
-  - {fileID: 2745384554232715582, guid: f97ef2476671a38408737a73869f6216, type: 3}
+  - {fileID: 2745384554232715582, guid: de0deea992bc75f40a2c4abaeff2201c, type: 3}
+  - {fileID: 2745384554232715582, guid: 47f371ec0ec53bd44b9606c8d6745669, type: 3}
   track: {fileID: 1153451296}
   complexity: 100
   debugMaxTries: 10000
