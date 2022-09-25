@@ -39,7 +39,7 @@ public class MenuScript : MonoBehaviour
             // todo: elegir chapa - input
             // todo: elegir chapa - visual
 
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Z) || Input.GetMouseButtonDown(0))
             {
                 SceneManager.LoadScene("GameScene");
             }

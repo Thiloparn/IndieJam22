@@ -259,7 +259,7 @@ Transform:
   m_GameObject: {fileID: 1890871092868648386}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.38014, y: -0.18732929, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5.825, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1986973134457846747}
@@ -279,9 +279,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_position: {x: -10.34014, y: -0.4573293, z: 0}
   m_precedingControlPointLocalPosition: {x: -1, y: 0, z: 0}
-  m_precedingControlPointPosition: {x: -11.34014, y: -0.4573293, z: 0}
+  m_precedingControlPointPosition: {x: -16.15264, y: -0.4573293, z: 0}
   m_followingControlPointLocalPosition: {x: 1, y: 0, z: 0}
-  m_followingControlPointPosition: {x: -9.34014, y: -0.4573293, z: 0}
+  m_followingControlPointPosition: {x: -4.5276403, y: -0.4573293, z: 0}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0

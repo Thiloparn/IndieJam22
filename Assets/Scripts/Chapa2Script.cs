@@ -79,6 +79,7 @@ public class Chapa2Script : MonoBehaviour
 
     public TrackScript trackScript;
     public Camera2Script cameraScript;
+    public BarreraScript barreraScript;
 
 
     //SONIDO
@@ -167,6 +168,10 @@ public class Chapa2Script : MonoBehaviour
 
         float closestTilePercentage = closestTile.trackPath.evenlySpacedPoints.GetPercentageAtNormalizedT(closestTileTime);
         cameraScript.SetPathPos(closestTile.cameraPath.GetPoint(closestTile.cameraPath.evenlySpacedPoints.GetNormalizedTAtPercentage(closestTilePercentage)));
+        if (barreraScript != null)
+        {
+            barreraScript.SetChapaPos(closestTile, closestTilePercentage);
+        }
 
         bool fellToHole = false;
         if (closestTileDistanceSq * 4 < trackMainWidth * trackMainWidth)
@@ -318,7 +323,7 @@ public class Chapa2Script : MonoBehaviour
         if (curFloorType == FloorType.Mud || curFloorType == FloorType.TrackBorder)
             barroInstance.start();
         //else if (curFloorType == FloorType.Ice)
-            //TODO
+        //TODO
         Debug.Log("sound");
 
 
@@ -340,6 +345,8 @@ public class Chapa2Script : MonoBehaviour
         {
             velocity = Vector2.zero;
         }
+
+        barreraScript.BeatMiss();
     }
 
 }
