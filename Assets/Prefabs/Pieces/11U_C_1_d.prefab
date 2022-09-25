@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: 0.14010859, y: 15.558054, z: 10}
+  m_position: {x: 0.14010859, y: 15.558054, z: 0}
   m_precedingControlPointLocalPosition: {x: -0.13893938, y: 0, z: -0.0000009536743}
-  m_precedingControlPointPosition: {x: 0.0011692047, y: 15.558054, z: 9.999999}
+  m_precedingControlPointPosition: {x: 0.0011692047, y: 15.558054, z: -0.0000009536743}
   m_followingControlPointLocalPosition: {x: 0.13893938, y: 0, z: 0.0000009536743}
-  m_followingControlPointPosition: {x: 0.27904797, y: 15.558054, z: 10.000001}
+  m_followingControlPointPosition: {x: 0.27904797, y: 15.558054, z: 0.0000009536743}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -102,11 +102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: 0.14010859, y: 19.996454, z: 10}
+  m_position: {x: 0.14010859, y: 19.996454, z: 0}
   m_precedingControlPointLocalPosition: {x: -0.13893938, y: 0, z: -0.0000009536743}
-  m_precedingControlPointPosition: {x: 0.0011692047, y: 19.996454, z: 9.999999}
+  m_precedingControlPointPosition: {x: 0.0011692047, y: 19.996454, z: -0.0000009536743}
   m_followingControlPointLocalPosition: {x: 0.13893938, y: 0, z: 0.0000009536743}
-  m_followingControlPointPosition: {x: 0.27904797, y: 19.996454, z: 10.000001}
+  m_followingControlPointPosition: {x: 0.27904797, y: 19.996454, z: 0.0000009536743}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -160,11 +160,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: -7.2850776, y: -0.0039936304, z: 10}
+  m_position: {x: -7.2850776, y: -0.0039936304, z: 0}
   m_precedingControlPointLocalPosition: {x: -0.8113642, y: 0, z: 0}
-  m_precedingControlPointPosition: {x: -8.096441, y: -0.0039936304, z: 10}
+  m_precedingControlPointPosition: {x: -8.096441, y: -0.0039936304, z: 0}
   m_followingControlPointLocalPosition: {x: 0.8113642, y: 0, z: 0}
-  m_followingControlPointPosition: {x: -6.4737134, y: -0.0039936304, z: 10}
+  m_followingControlPointPosition: {x: -6.4737134, y: -0.0039936304, z: 0}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -218,11 +218,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: -16, y: 0, z: 10}
+  m_position: {x: -16, y: 0, z: 0}
   m_precedingControlPointLocalPosition: {x: -1, y: 0, z: 0}
-  m_precedingControlPointPosition: {x: -17, y: 0, z: 10}
+  m_precedingControlPointPosition: {x: -17, y: 0, z: 0}
   m_followingControlPointLocalPosition: {x: 1, y: 0, z: 0}
-  m_followingControlPointPosition: {x: -15, y: 0, z: 10}
+  m_followingControlPointPosition: {x: -15, y: 0, z: 0}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -393,11 +393,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: -7.2850776, y: -0.0039936304, z: 10}
+  m_position: {x: -7.2850776, y: -0.0039936304, z: 0}
   m_precedingControlPointLocalPosition: {x: -0.8113642, y: 0, z: 0}
-  m_precedingControlPointPosition: {x: -8.096441, y: -0.0039936304, z: 10}
+  m_precedingControlPointPosition: {x: -8.096441, y: -0.0039936304, z: 0}
   m_followingControlPointLocalPosition: {x: 0.8113642, y: 0, z: 0}
-  m_followingControlPointPosition: {x: -6.4737134, y: -0.0039936304, z: 10}
+  m_followingControlPointPosition: {x: -6.4737134, y: -0.0039936304, z: 0}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -432,7 +432,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2540357513800011733}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -715,7 +715,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4249662939058866328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -793,11 +793,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: -0.44467533, y: 4.812039, z: 10}
+  m_position: {x: -0.44467533, y: 4.812039, z: 0}
   m_precedingControlPointLocalPosition: {x: -1.1544605, y: -4.4160786, z: 0}
-  m_precedingControlPointPosition: {x: -1.5991359, y: 0.39596033, z: 10}
+  m_precedingControlPointPosition: {x: -1.5991359, y: 0.39596033, z: 0}
   m_followingControlPointLocalPosition: {x: 1.1544605, y: 4.4160786, z: 0}
-  m_followingControlPointPosition: {x: 0.7097852, y: 9.228117, z: 10}
+  m_followingControlPointPosition: {x: 0.7097852, y: 9.228117, z: 0}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -851,11 +851,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: -10.225045, y: 0, z: 10}
+  m_position: {x: -10.225045, y: 0, z: 0}
   m_precedingControlPointLocalPosition: {x: -1, y: 0, z: 0}
-  m_precedingControlPointPosition: {x: -11.225045, y: 0, z: 10}
+  m_precedingControlPointPosition: {x: -11.225045, y: 0, z: 0}
   m_followingControlPointLocalPosition: {x: 1, y: 0, z: 0}
-  m_followingControlPointPosition: {x: -9.225045, y: 0, z: 10}
+  m_followingControlPointPosition: {x: -9.225045, y: 0, z: 0}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -1026,11 +1026,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: -0.44467533, y: 4.812039, z: 10}
+  m_position: {x: -0.44467533, y: 4.812039, z: 0}
   m_precedingControlPointLocalPosition: {x: -1.1544605, y: -4.4160786, z: 0}
-  m_precedingControlPointPosition: {x: -1.5991359, y: 0.39596033, z: 10}
+  m_precedingControlPointPosition: {x: -1.5991359, y: 0.39596033, z: 0}
   m_followingControlPointLocalPosition: {x: 1.1544605, y: 4.4160786, z: 0}
-  m_followingControlPointPosition: {x: 0.7097852, y: 9.228117, z: 10}
+  m_followingControlPointPosition: {x: 0.7097852, y: 9.228117, z: 0}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
