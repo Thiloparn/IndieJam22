@@ -431,6 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trackPath: {fileID: 877710078746227979}
   cameraPath: {fileID: 4528935493823391961}
+  path: 0100000000000000
 --- !u!1 &3109586801476829093
 GameObject:
   m_ObjectHideFlags: 0
