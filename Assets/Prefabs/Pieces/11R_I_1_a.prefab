@@ -158,9 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb9171255405364d9809ed744db36d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackPath: {fileID: 749424912484406028, guid: 92b0c2a5e59b78e4690eb20e4ffeafac, type: 3}
-  cameraPath: {fileID: 5079054725646674339, guid: 92b0c2a5e59b78e4690eb20e4ffeafac, type: 3}
+  trackPath: {fileID: 3064837973488867071}
+  cameraPath: {fileID: 194279383808094614}
   path: 00000000
+  difficulty: 0
 --- !u!1 &4254077702007376515
 GameObject:
   m_ObjectHideFlags: 0
