@@ -104,9 +104,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_position: {x: -1.4319818, y: 30.683678, z: 0}
   m_precedingControlPointLocalPosition: {x: -10.890082, y: 10.982436, z: 0.00000027496185}
-  m_precedingControlPointPosition: {x: -0.98493123, y: 15.223798, z: 0.00000027496185}
+  m_precedingControlPointPosition: {x: -0.9849302, y: 15.223795, z: 0.00000027496185}
   m_followingControlPointLocalPosition: {x: 10.890082, y: -10.982437, z: -0.00000027496185}
-  m_followingControlPointPosition: {x: -1.8790324, y: 46.14356, z: -0.00000027496185}
+  m_followingControlPointPosition: {x: -1.8790324, y: 46.143562, z: -0.00000027496185}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackPath: {fileID: 877710078746227979}
-  cameraPath: {fileID: 0}
+  cameraPath: {fileID: 4528935493823391961}
 --- !u!1 &3109586801476829093
 GameObject:
   m_ObjectHideFlags: 0
