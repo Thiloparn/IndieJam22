@@ -25,6 +25,10 @@ public class SpeedometerScript : MonoBehaviour
     {
         float percent = Mathf.Clamp01(chapaScript.velocity.magnitude / speed100);
         int curSpr = Mathf.FloorToInt(percent * speedSprites.Length);
+        if (curSpr == speedSprites.Length)
+        {
+            curSpr -= 1;
+        }
         if (prevSpr != curSpr)
         {
             spriteRenderer.sprite = speedSprites[curSpr];
