@@ -10,6 +10,8 @@ public class TileScript : MonoBehaviour
     public BezierSpline cameraPath;
 
     public DirectionEnum[] path;
+	
+	public int difficulty;
 
     // Start is called before the first frame update
     void Start()

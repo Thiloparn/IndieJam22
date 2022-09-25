@@ -220,6 +220,7 @@ MonoBehaviour:
   trackPath: {fileID: 4325819303492733381}
   cameraPath: {fileID: 8864002160634738676}
   path: 01000000
+  difficulty: 1
 --- !u!1 &3028586949238676390
 GameObject:
   m_ObjectHideFlags: 0
