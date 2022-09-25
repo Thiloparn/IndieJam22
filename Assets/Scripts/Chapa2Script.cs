@@ -104,7 +104,7 @@ public class Chapa2Script : MonoBehaviour
         position = transform.position;
 
         // SONIDO
-        caidaInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Caída");
+        caidaInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Caida");
         chorlitoInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Chorlito");
         reboteInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Rebote");
         choqueInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Choque");
