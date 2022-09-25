@@ -220,12 +220,13 @@ public class GeneratorScript : MonoBehaviour
                     validPrefabsCount++;
                 }
 
-                if (isInvertedCompatible(curSegmentLength, curSegment, prefabTileScripts[n].path))
-                {
-                    validPrefabsFlip[validPrefabsCount] = true;
-                    validPrefabs[validPrefabsCount] = tilePrefabs[n];
-                    validPrefabsCount++;
-                }
+                // no flipping
+                // if (isInvertedCompatible(curSegmentLength, curSegment, prefabTileScripts[n].path))
+                // {
+                //     validPrefabsFlip[validPrefabsCount] = true;
+                //     validPrefabs[validPrefabsCount] = tilePrefabs[n];
+                //     validPrefabsCount++;
+                // }
             }
 
             if (validPrefabsCount == 0)
