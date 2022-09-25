@@ -84,13 +84,11 @@ public class GeneratorScript : MonoBehaviour
 
             int prevDistance = Random.Range(1, prevCorner.distanceToNext);
             int nextDistance = Random.Range(1, cutCorner.distanceToNext);
-            // int prevDistance = 1;
-            // int nextDistance = 2;
 
             bool validCut = true;
-            for (int i = 1; i < prevDistance; i++)
+            for (int i = 1; i <= prevDistance; i++)
             {
-                for (int j = 1; j < nextDistance; j++)
+                for (int j = 1; j <= nextDistance; j++)
                 {
                     tempInnerPoint = cutCorner.pos - prevDir * i + nextDir * j;
                     if (nextTileDir[tempInnerPoint.x, tempInnerPoint.y] != Vector2Int.zero)
@@ -139,6 +137,7 @@ public class GeneratorScript : MonoBehaviour
             corners.Insert(cutCornerIndex + 1, newNextCorner);
             corners.Insert(cutCornerIndex, newPrevCorner);
 
+            // Debug.Log("corners now are:");
             // for (int k = 0; k < corners.Count; k++)
             // {
             //     Debug.Log("corner " + k + ": pos is " + corners[k].pos.ToString() + ", dist is " + corners[k].distanceToNext);
