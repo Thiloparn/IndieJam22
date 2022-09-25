@@ -4,6 +4,19 @@ using UnityEngine;
 
 public enum DirectionEnum { RIGHT, UP, LEFT, DOWN }
 
+struct Corner
+{
+    public Vector2Int pos;
+    public int distanceToNext;
+
+    public Corner(Vector2Int pos, int distanceToNext)
+    {
+        this.pos = pos;
+        this.distanceToNext = distanceToNext;
+    }
+
+}
+
 public class GeneratorScript : MonoBehaviour
 {
 
@@ -17,6 +30,7 @@ public class GeneratorScript : MonoBehaviour
 
     public TrackScript track;
 
+    public int complexity = 100;
     public int debugMaxTries = 10;
 
     // Start is called before the first frame update
@@ -37,6 +51,103 @@ public class GeneratorScript : MonoBehaviour
             nextTileDir[maxWidth - 1, j - 1] = Vector2Int.up;
         }
 
+        List<Corner> corners = new List<Corner>();
+
+        corners.Add(new Corner(new Vector2Int(0, 0), maxWidth - 1));
+        corners.Add(new Corner(new Vector2Int(maxWidth - 1, 0), maxHeight - 1));
+        corners.Add(new Corner(new Vector2Int(maxWidth - 1, maxHeight - 1), maxWidth - 1));
+        corners.Add(new Corner(new Vector2Int(0, maxHeight - 1), maxHeight - 1));
+
+
+        // debug
+        // nextTileDir[0, 0] = Vector2Int.zero;
+        // nextTileDir[0, 1] = Vector2Int.right;
+        // nextTileDir[1, 1] = Vector2Int.down;
+
+        Vector2Int tempInnerPoint;
+
+        int complexityIters = 0;
+        while (complexityIters < complexity)
+        {
+            complexityIters++;
+
+            // cut a corner
+            int cutCornerIndex = Random.Range(0, corners.Count);
+            // int cutCornerIndex = 1;
+            Corner cutCorner = corners[cutCornerIndex];
+            Corner prevCorner = corners[mod(cutCornerIndex - 1, corners.Count)];
+
+            if (cutCorner.distanceToNext <= 1 || prevCorner.distanceToNext <= 1) continue;
+
+            Vector2Int prevDir = nextTileDir[prevCorner.pos.x, prevCorner.pos.y];
+            Vector2Int nextDir = nextTileDir[cutCorner.pos.x, cutCorner.pos.y];
+
+            int prevDistance = Random.Range(1, prevCorner.distanceToNext);
+            int nextDistance = Random.Range(1, cutCorner.distanceToNext);
+            // int prevDistance = 1;
+            // int nextDistance = 2;
+
+            bool validCut = true;
+            for (int i = 1; i < prevDistance; i++)
+            {
+                for (int j = 1; j < nextDistance; j++)
+                {
+                    tempInnerPoint = cutCorner.pos - prevDir * i + nextDir * j;
+                    if (nextTileDir[tempInnerPoint.x, tempInnerPoint.y] != Vector2Int.zero)
+                    {
+                        validCut = false;
+                        break;
+                    }
+                }
+                if (!validCut) break;
+            }
+            if (!validCut) continue;
+
+            // Debug.Log("cutting");
+
+            for (int i = 0; i < prevDistance; i++)
+            {
+                tempInnerPoint = cutCorner.pos - prevDir * i;
+                nextTileDir[tempInnerPoint.x, tempInnerPoint.y] = Vector2Int.zero;
+                // Debug.Log("i1: setting " + tempInnerPoint.ToString() + " to zero");
+            }
+            for (int j = 0; j < nextDistance; j++)
+            {
+                tempInnerPoint = cutCorner.pos + nextDir * j;
+                nextTileDir[tempInnerPoint.x, tempInnerPoint.y] = Vector2Int.zero;
+                // Debug.Log("j1: setting " + tempInnerPoint.ToString() + " to zero");
+            }
+
+            for (int i = 1; i <= prevDistance; i++)
+            {
+                tempInnerPoint = cutCorner.pos - prevDir * i + nextDir * nextDistance;
+                nextTileDir[tempInnerPoint.x, tempInnerPoint.y] = prevDir;
+                // Debug.Log("i2: setting " + tempInnerPoint.ToString() + " to " + prevDir.ToString());
+            }
+            for (int j = 0; j < nextDistance; j++)
+            {
+                tempInnerPoint = cutCorner.pos + nextDir * j - prevDir * prevDistance;
+                nextTileDir[tempInnerPoint.x, tempInnerPoint.y] = nextDir;
+                // Debug.Log("j2: setting " + tempInnerPoint.ToString() + " to " + nextDir.ToString());
+            }
+
+            Corner newPrevCorner = new Corner(cutCorner.pos - prevDir * prevDistance, nextDistance);
+            Corner newNextCorner = new Corner(cutCorner.pos + nextDir * nextDistance, cutCorner.distanceToNext - nextDistance);
+
+            corners[mod(cutCornerIndex - 1, corners.Count)] = new Corner(prevCorner.pos, prevCorner.distanceToNext - prevDistance);
+            corners[cutCornerIndex] = new Corner(cutCorner.pos + nextDir * nextDistance - prevDir * prevDistance, prevDistance);
+            corners.Insert(cutCornerIndex + 1, newNextCorner);
+            corners.Insert(cutCornerIndex, newPrevCorner);
+
+            // for (int k = 0; k < corners.Count; k++)
+            // {
+            //     Debug.Log("corner " + k + ": pos is " + corners[k].pos.ToString() + ", dist is " + corners[k].distanceToNext);
+            // }
+
+            // break;
+        }
+
+
         // STEP 2: convert it to tiles
         isDone = new bool[maxWidth, maxHeight];
         Vector2Int prevTile = Vector2Int.zero;
@@ -50,7 +161,7 @@ public class GeneratorScript : MonoBehaviour
             }
         }
 
-        Debug.Log("starting tile: " + prevTile.ToString());
+        // Debug.Log("starting tile: " + prevTile.ToString());
 
         int maxPrefabPathLength = 0;
         TileScript[] prefabTileScripts = new TileScript[tilePrefabs.Length];
@@ -62,7 +173,8 @@ public class GeneratorScript : MonoBehaviour
 
         // avoid declaring variables in loop
         int validPrefabsCount;
-        GameObject[] validPrefabs = new GameObject[tilePrefabs.Length];
+        GameObject[] validPrefabs = new GameObject[tilePrefabs.Length * 2];
+        bool[] validPrefabsFlip = new bool[tilePrefabs.Length * 2];
         Vector2Int initDirection;
         Vector2Int initTile;
         Vector2Int curTile;
@@ -78,12 +190,12 @@ public class GeneratorScript : MonoBehaviour
             initDirection = nextTileDir[prevTile.x, prevTile.y];
             initTile = prevTile + initDirection;
 
-            Debug.Log("starting new thing, at initTile: " + initTile.ToString());
+            // Debug.Log("starting new thing, at initTile: " + initTile.ToString());
             curTile = initTile;
             curSegmentLength = 1 + Random.Range(0, maxPrefabPathLength);
             for (int k = 0; k < curSegmentLength; k++)
             {
-                Debug.Log("curTile: " + curTile.ToString());
+                // Debug.Log("curTile: " + curTile.ToString());
                 /*if (isDone[curTile.x, curTile.y])
                 {
                     done = true;
@@ -103,6 +215,14 @@ public class GeneratorScript : MonoBehaviour
             {
                 if (isCompatible(curSegmentLength, curSegment, prefabTileScripts[n].path))
                 {
+                    validPrefabsFlip[validPrefabsCount] = false;
+                    validPrefabs[validPrefabsCount] = tilePrefabs[n];
+                    validPrefabsCount++;
+                }
+
+                if (isInvertedCompatible(curSegmentLength, curSegment, prefabTileScripts[n].path))
+                {
+                    validPrefabsFlip[validPrefabsCount] = true;
                     validPrefabs[validPrefabsCount] = tilePrefabs[n];
                     validPrefabsCount++;
                 }
@@ -115,11 +235,18 @@ public class GeneratorScript : MonoBehaviour
 
             //             // Quaternion.FromToRotation(Vector3.right, new Vector3(initDirection.x, initDirection.y, 0f))
 
-            track.tiles.Add(GameObject.Instantiate(
-                validPrefabs[Random.Range(0, validPrefabsCount)],
+            int prefabIndex = Random.Range(0, validPrefabsCount);
+            GameObject cur = GameObject.Instantiate(
+                validPrefabs[prefabIndex],
                 new Vector3(initTile.x * 32, initTile.y * 32, 10f),
-                rotFromInitDir(initDirection)
-            ).GetComponent<TileScript>());
+                rotFromInitDir(initDirection),
+                track.transform
+            );
+            if (validPrefabsFlip[prefabIndex])
+            {
+                cur.transform.localScale = new Vector3(cur.transform.localScale.x, -cur.transform.localScale.y, cur.transform.localScale.z);
+            }
+            track.tiles.Add(cur.GetComponent<TileScript>());
 
             curTile = initTile;
             for (int k = 0; k < curSegmentLength; k++)
@@ -130,6 +257,7 @@ public class GeneratorScript : MonoBehaviour
                 {
                     prevTile = curTile;
                 }
+                Debug.Log(curTile.ToString());
                 curTile += curDir;
             }
 
@@ -139,8 +267,9 @@ public class GeneratorScript : MonoBehaviour
                 break;
             }
 
-            Debug.Log("correctly placed a thing; tile init was " + initTile.ToString() + ", prevTile is now " + prevTile.ToString());
+            // Debug.Log("correctly placed a thing; tile init was " + initTile.ToString() + ", prevTile is now " + prevTile.ToString());
         }
+        track.transform.position -= new Vector3(track.tiles[0].transform.position.x, track.tiles[0].transform.position.y, 0f);
     }
 
     Quaternion rotFromInitDir(Vector2Int dir)
@@ -177,6 +306,37 @@ public class GeneratorScript : MonoBehaviour
                 return false;
             }
         }
+        return true;
+    }
+
+    bool isInvertedCompatible(int segmentLength, Vector2Int[] realSegment, DirectionEnum[] prefabSegment)
+    {
+        if (prefabSegment.Length != segmentLength)
+        {
+            return false;
+        }
+        bool anyVert = false;
+        for (int k = 0; k < segmentLength; k++)
+        {
+            switch (prefabSegment[k])
+            {
+                case DirectionEnum.RIGHT:
+                    if (realSegment[k] != Vector2Int.right) return false;
+                    break;
+                case DirectionEnum.UP:
+                    if (realSegment[k] != Vector2Int.down) return false;
+                    anyVert = true;
+                    break;
+                case DirectionEnum.LEFT:
+                    if (realSegment[k] != Vector2Int.left) return false;
+                    break;
+                case DirectionEnum.DOWN:
+                    if (realSegment[k] != Vector2Int.up) return false;
+                    anyVert = true;
+                    break;
+            }
+        }
+        // if (!anyVert) return false; // allow flipping of purely horizontal sprites?
         return true;
     }
 
@@ -222,5 +382,10 @@ public class GeneratorScript : MonoBehaviour
     void Update()
     {
 
+    }
+
+    int mod(int x, int m)
+    {
+        return (x % m + m) % m;
     }
 }
