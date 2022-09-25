@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 956091930835852583}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.951, y: 0, z: 0}
+  m_LocalPosition: {x: 3.291, y: -0.009, z: 0}
   m_LocalScale: {x: 3.063079, y: 3.063079, z: 3.063079}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -194,11 +194,13 @@ MonoBehaviour:
   alwaysPressed: 1
   allowBrake: 0
   defaultToHole: 0
+  resetAccelerationOnBeat: 0
   defaultBounciness: 1
   invertDirection: 0
   airTime: 0
   airDrag: 0.61
   holePenalty: 2
+  mouseDirection: {x: 0, y: 0}
   backgroundMainColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   backgroundBeatColor: {r: 0.21568628, g: 0.34117648, b: 0.5372549, a: 0}
 --- !u!198 &200111420853148709
