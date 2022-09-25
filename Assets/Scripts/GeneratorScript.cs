@@ -192,21 +192,22 @@ public class GeneratorScript : MonoBehaviour
             // Debug.Log("starting new thing, at initTile: " + initTile.ToString());
             curTile = initTile;
             curSegmentLength = 1 + Random.Range(0, maxPrefabPathLength);
+            bool overLap = false;
             for (int k = 0; k < curSegmentLength; k++)
             {
                 // Debug.Log("curTile: " + curTile.ToString());
-                /*if (isDone[curTile.x, curTile.y])
+                if (isDone[curTile.x, curTile.y])
                 {
-                    done = true;
+                    overLap = true;
                     break;
-                }*/
+                }
                 Vector2Int curDir = nextTileDir[curTile.x, curTile.y];
                 curSegment[k] = rotate(curDir, initDirection);
                 curTile += curDir;
             }
-            if (done)
+            if (overLap)
             {
-                break;
+                continue;
             }
 
             validPrefabsCount = 0;
@@ -269,6 +270,7 @@ public class GeneratorScript : MonoBehaviour
             // Debug.Log("correctly placed a thing; tile init was " + initTile.ToString() + ", prevTile is now " + prevTile.ToString());
         }
         track.transform.position -= new Vector3(track.tiles[0].transform.position.x, track.tiles[0].transform.position.y, 0f);
+        track.transform.position += track.tiles[0].transform.rotation * new Vector3(16f, 0f, 0f);
     }
 
     Quaternion rotFromInitDir(Vector2Int dir)

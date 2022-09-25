@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &24829308
 BoxCollider2D:
@@ -252,6 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &54838417
 BoxCollider2D:
@@ -302,8 +304,11 @@ MonoBehaviour:
       Data2: 1133668006
       Data3: -95429718
       Data4: 320480953
-    Path: event:/Cyberchapas
+    Path: event:/Song_Cyberchapas
   errorMargin: 0.2
+  chapaScript: {fileID: 0}
+  backgroundMainColor: {r: 0, g: 0, b: 0, a: 0}
+  backgroundBeatColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &81085770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -609,6 +614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &143897913
 BoxCollider2D:
@@ -865,6 +871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &200241907
 BoxCollider2D:
@@ -960,6 +967,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &252301561
 SpriteRenderer:
@@ -1203,6 +1211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &319559869
 BoxCollider2D:
@@ -1276,6 +1285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &354756674
 BoxCollider2D:
@@ -1349,6 +1359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &357075547
 BoxCollider2D:
@@ -1422,6 +1433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &357383001
 BoxCollider2D:
@@ -1495,6 +1507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &371268984
 BoxCollider2D:
@@ -1568,6 +1581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &400950610
 BoxCollider2D:
@@ -1658,6 +1672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &403181959
 SpriteRenderer:
@@ -1842,6 +1857,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &467754228
 BoxCollider2D:
@@ -1915,6 +1931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &472467883
 BoxCollider2D:
@@ -2005,6 +2022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &504828333
 SpriteRenderer:
@@ -2199,6 +2217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &552724828
 BoxCollider2D:
@@ -2277,6 +2296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &615411458
 BoxCollider2D:
@@ -2355,6 +2375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &673335069
 BoxCollider2D:
@@ -2433,6 +2454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &690124697
 BoxCollider2D:
@@ -2506,6 +2528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &706615637
 BoxCollider2D:
@@ -2596,6 +2619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &714509741
 SpriteRenderer:
@@ -2695,6 +2719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &720410904
 BoxCollider2D:
@@ -2768,6 +2793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &734944176
 BoxCollider2D:
@@ -2841,6 +2867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &739536743
 BoxCollider2D:
@@ -2986,6 +3013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &759550624
 BoxCollider2D:
@@ -3129,6 +3157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &802728280
 SpriteRenderer:
@@ -3228,6 +3257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &804045219
 BoxCollider2D:
@@ -3306,6 +3336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &822166876
 BoxCollider2D:
@@ -3396,6 +3427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &832127167
 SpriteRenderer:
@@ -3590,6 +3622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &876743743
 BoxCollider2D:
@@ -3663,6 +3696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &898737218
 BoxCollider2D:
@@ -3826,6 +3860,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &968200254
 BoxCollider2D:
@@ -3899,6 +3934,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1000231984
 BoxCollider2D:
@@ -3972,6 +4008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1010561397
 BoxCollider2D:
@@ -4119,6 +4156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1075012115
 BoxCollider2D:
@@ -4450,6 +4488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1145740986
 BoxCollider2D:
@@ -4608,6 +4647,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1218282416
 BoxCollider2D:
@@ -4934,6 +4974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1290738184
 BoxCollider2D:
@@ -5141,6 +5182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &1330288746
 SpriteRenderer:
@@ -5240,6 +5282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1333918195
 BoxCollider2D:
@@ -5335,6 +5378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &1363706800
 SpriteRenderer:
@@ -5541,6 +5585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &1427141300
 SpriteRenderer:
@@ -5640,6 +5685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1453031577
 BoxCollider2D:
@@ -5952,6 +5998,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1512317858
 BoxCollider2D:
@@ -6232,6 +6279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1550675418
 BoxCollider2D:
@@ -6430,6 +6478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &1599665386
 SpriteRenderer:
@@ -6546,6 +6595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &1600730259
 SpriteRenderer:
@@ -6645,6 +6695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1624533152
 BoxCollider2D:
@@ -6807,6 +6858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1665324498
 BoxCollider2D:
@@ -7003,6 +7055,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &1710229816
 SpriteRenderer:
@@ -7209,6 +7262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &1777750659
 SpriteRenderer:
@@ -7523,6 +7577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1863488685
 BoxCollider2D:
@@ -7613,6 +7668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &1878279233
 SpriteRenderer:
@@ -7729,6 +7785,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &1890623857
 SpriteRenderer:
@@ -7828,6 +7885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &1900476043
 BoxCollider2D:
@@ -7918,6 +7976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &1905353831
 SpriteRenderer:
@@ -8553,6 +8612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &1952868369
 SpriteRenderer:
@@ -9155,6 +9215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 7.54
+  type: 0
   isHole: 0
 --- !u!61 &2050226082
 BoxCollider2D:
@@ -9250,6 +9311,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
+  type: 0
   isHole: 1
 --- !u!212 &2100322019
 SpriteRenderer:

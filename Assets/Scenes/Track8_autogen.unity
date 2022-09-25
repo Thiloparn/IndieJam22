@@ -507,7 +507,7 @@ MonoBehaviour:
       Data2: 1133668006
       Data3: -95429718
       Data4: 320480953
-    Path: event:/Cyberchapas
+    Path: event:/Song_Cyberchapas
   errorMargin: 0.2
   chapaScript: {fileID: 1816843166}
   backgroundMainColor: {r: 0.2272161, g: 0.29700282, b: 0.6981132, a: 0}
