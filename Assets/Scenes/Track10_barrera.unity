@@ -157,8 +157,10 @@ MonoBehaviour:
   chapaScript: {fileID: 1816843166}
   beatManager: {fileID: 1861083352}
   trackScript: {fileID: 1153451296}
-  maxVelMove: 0.7
-  maxVelDir: 10
+  maxVelMove: 20
+  maxVelDir: 20
+  maxChapaDistance: 2
+  vel: 0.3
 --- !u!61 &345475527
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -508,9 +510,8 @@ MonoBehaviour:
   maxWidth: 5
   maxHeight: 5
   tilePrefabs:
-  - {fileID: 2745384554232715582, guid: 92b0c2a5e59b78e4690eb20e4ffeafac, type: 3}
-  - {fileID: 2745384554232715582, guid: 47f371ec0ec53bd44b9606c8d6745669, type: 3}
-  - {fileID: 2745384554232715582, guid: f97ef2476671a38408737a73869f6216, type: 3}
+  - {fileID: 2745384554232715582, guid: c77efe6c99d47a9419ede079a91f2f2d, type: 3}
+  - {fileID: 2745384554232715582, guid: 9aa99af6fda44d548aa4a1bff57e5896, type: 3}
   track: {fileID: 1153451296}
   complexity: 100
   debugMaxTries: 10000
@@ -623,7 +624,6 @@ MonoBehaviour:
       Data3: -95429718
       Data4: 320480953
     Path: event:/Song_Cyberchapas
-  errorMargin: 0.2
   chapaScript: {fileID: 1816843166}
   backgroundMainColor: {r: 0.2272161, g: 0.29700282, b: 0.6981132, a: 0}
   backgroundBeatColor: {r: 0.22745097, g: 0.35990736, b: 0.69803923, a: 0}
