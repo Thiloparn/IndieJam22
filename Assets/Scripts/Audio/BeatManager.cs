@@ -5,6 +5,7 @@ using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
+using AOT;
 
 public enum ClickType { Hit, Miss, Unused }
 
@@ -27,7 +28,7 @@ public class BeatManager : MonoBehaviour
 
     [Tooltip("Porcentaje de error que se le permite al jugador al clicar en el beat")]
     [Range(0f, 1.0f)]
-    public float errorMargin = 0.1f;
+    public static float errorMargin = 0.1f;
 
     public Chapa2Script chapaScript;
     // temp variables, for debugging
@@ -39,18 +40,23 @@ public class BeatManager : MonoBehaviour
     private FMOD.Studio.EVENT_CALLBACK cb;
 
     // N�mero de beats que llevamos
-    int beatCounter;
+    static int beatCounter;
 
     // Tiempo total transcurrido
-    float timePassed;
+    static float timePassed;
 
     //El supuesto tiempo que hay entre un beat y el siguiente
-    float beatTime;
+    static float beatTime;
 
     bool paused;
 
     // Beat actual y el �ltimo
-    Beat lastBeat;
+    static Beat lastBeat;
+
+
+    // Estamos en la parte del beat de después del clock exacto
+    static bool afterBeat;
+    static float afterBeatCounter;
 
 
     private void Awake()
@@ -59,7 +65,7 @@ public class BeatManager : MonoBehaviour
 
         cb = new FMOD.Studio.EVENT_CALLBACK(BeatCallback);
         songInstance.setCallback(cb, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT);
-        //songInstance.start();
+        songInstance.start();
     }
 
     // Start is called before the first frame update
@@ -80,6 +86,17 @@ public class BeatManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Tiempo para que acabe el beat
+        if (afterBeat) 
+        {
+            afterBeatCounter += Time.deltaTime;
+            if (afterBeatCounter > beatTime * errorMargin) 
+            {
+                afterBeat = false;
+                EndBeat();
+            }   
+        }
+
         // Hacemos click...
         if (Input.GetMouseButtonDown(0))
         {
@@ -145,7 +162,12 @@ public class BeatManager : MonoBehaviour
     }
 
 
-    public FMOD.RESULT BeatCallback(FMOD.Studio.EVENT_CALLBACK_TYPE type, IntPtr eventInstance, IntPtr parameters)
+    // Mamma mia
+    delegate void BeatCallbackDelegate(FMOD.Studio.EVENT_CALLBACK_TYPE type, IntPtr eventInstance, IntPtr parameters);
+
+
+    [MonoPInvokeCallback(typeof(BeatCallbackDelegate))]
+    static public FMOD.RESULT BeatCallback(FMOD.Studio.EVENT_CALLBACK_TYPE type, IntPtr eventInstance, IntPtr parameters)
     {
         //Debug.Log("Beat " + beatCounter + " en " + timePassed + ", " + beatTime + "s para el siguiente");
 
@@ -174,10 +196,14 @@ public class BeatManager : MonoBehaviour
         lastBeat.instant = timePassed;
 
         beatCounter++;
+        //Debug.Log("Beat " + beatCounter);
 
-        Invoke("EndBeat", beatTime * errorMargin);
+        afterBeat = true;
+
+        //Invoke("EndBeat", beatTime * errorMargin);
         return FMOD.RESULT.OK;
     }
+
 
     // Acaba el beat
     private void EndBeat()
