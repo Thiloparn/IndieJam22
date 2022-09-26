@@ -371,8 +371,6 @@ MonoBehaviour:
   maxWidth: 5
   maxHeight: 5
   tilePrefabs:
-  - {fileID: 2745384554232715582, guid: ddcd07174ad42644e9637f58f1f6763f, type: 3}
-  - {fileID: 2745384554232715582, guid: bf18d2969d0da0e40a3e90752e3ef9cc, type: 3}
   - {fileID: 2745384554232715582, guid: 92b0c2a5e59b78e4690eb20e4ffeafac, type: 3}
   - {fileID: 2745384554232715582, guid: bfef971dec899cb449e6d5fbe21c5da4, type: 3}
   - {fileID: 2745384554232715582, guid: 4516c20d66791484f89bf17167399b98, type: 3}
@@ -385,9 +383,11 @@ MonoBehaviour:
   - {fileID: 2745384554232715582, guid: d72c3c261ad74a547b4bd230186e17b9, type: 3}
   - {fileID: 2745384554232715582, guid: 0e2238d329ac7fd449fac4c61f98966f, type: 3}
   - {fileID: 2745384554232715582, guid: c6925b248e0180649b87df6d0a3997fd, type: 3}
+  - {fileID: 2745384554232715582, guid: de0deea992bc75f40a2c4abaeff2201c, type: 3}
   - {fileID: 2745384554232715582, guid: 46c205288a48f89439eeea01dabd8f29, type: 3}
-  - {fileID: 2745384554232715582, guid: a9e99692fbb07a841b90cf3a9200b9d3, type: 3}
+  - {fileID: 2745384554232715582, guid: f435e695adf34bf449ac8a2b53251452, type: 3}
   - {fileID: 2745384554232715582, guid: 352b65b1b9edf984c97435786fa24ab2, type: 3}
+  - {fileID: 2745384554232715582, guid: e37ca8e140a41aa42b49b987f34a2254, type: 3}
   track: {fileID: 1153451296}
   complexity: 100
   debugMaxTries: 10000

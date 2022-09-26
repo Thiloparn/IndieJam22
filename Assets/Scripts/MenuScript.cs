@@ -11,6 +11,10 @@ public class MenuScript : MonoBehaviour
     public bool onMainMenu = false;
     int selectedChapa = 0;
 
+    public GameObject chapa1;
+    public GameObject chapa2;
+    public GameObject chapa3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +42,12 @@ public class MenuScript : MonoBehaviour
             }
             // todo: elegir chapa - input
             // todo: elegir chapa - visual
+
+            float mouseX = Input.mousePosition.x / Screen.width;
+
+            chapa1.SetActive(mouseX < .33f);
+            chapa2.SetActive(mouseX >= .33f && mouseX < .66f);
+            chapa3.SetActive(mouseX >= .66f);
 
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Z) || Input.GetMouseButtonDown(0))
             {
