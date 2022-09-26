@@ -346,7 +346,8 @@ public class Chapa2Script : MonoBehaviour
             velocity = Vector2.zero;
         }
 
-        barreraScript.BeatMiss();
+        if(barreraScript != null)
+            barreraScript.BeatMiss();
     }
 
 }
