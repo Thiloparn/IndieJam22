@@ -90,6 +90,16 @@ public class Chapa2Script : MonoBehaviour
     private FMOD.Studio.EventInstance barroInstance;
 
 
+    private void Awake()
+    {
+        // SONIDO
+        caidaInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Caida");
+        chorlitoInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Chorlito");
+        reboteInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Rebote");
+        choqueInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Choque");
+        barroInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Barro");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -102,13 +112,6 @@ public class Chapa2Script : MonoBehaviour
         previousPositions = new List<Vector2>(maxPositionsStored);
 
         position = transform.position;
-
-        // SONIDO
-        caidaInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Caida");
-        chorlitoInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Chorlito");
-        reboteInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Rebote");
-        choqueInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Choque");
-        barroInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Barro");
     }
 
     // Update is called once per frame

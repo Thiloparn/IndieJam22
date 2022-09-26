@@ -310,14 +310,6 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1067039735
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3041006272274870511}
-  m_Enabled: 1
 --- !u!1 &1153451294
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +430,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1790262973360549262, guid: 14fdf88c43d55a049a7782c094cb969a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1790262973360549263, guid: 14fdf88c43d55a049a7782c094cb969a, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -512,6 +508,36 @@ MonoBehaviour:
   chapaScript: {fileID: 1816843166}
   backgroundMainColor: {r: 0.2272161, g: 0.29700282, b: 0.6981132, a: 0}
   backgroundBeatColor: {r: 0.22745097, g: 0.35990736, b: 0.69803923, a: 0}
+--- !u!114 &1861083353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861083351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1855683421
+      Data2: 1160369807
+      Data3: 1113705106
+      Data4: 1303770080
+    Path: event:/Song_Machine
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1001 &256879261642131206
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -607,7 +633,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4466761144024412113}
   - component: {fileID: 1067039734}
-  - component: {fileID: 1067039735}
   - component: {fileID: 1067039729}
   - component: {fileID: 4466761144024412114}
   - component: {fileID: 1485753280}

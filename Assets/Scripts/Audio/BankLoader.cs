@@ -12,13 +12,11 @@ public class BankLoader : MonoBehaviour
     [FMODUnity.BankRef]
     public List<string> banks;
 
-    public Button ClickToLoadButton, ChangeSceneButton;
-    public Text LoadingBanksText;
+    //public Button ClickToLoadButton, ChangeSceneButton;
 
     private void Awake()
     {
-        LoadingBanksText.gameObject.SetActive(false);
-        ChangeSceneButton.interactable = false;
+        LoadBanks();
     }
 
     public void LoadBanks()
@@ -34,7 +32,6 @@ public class BankLoader : MonoBehaviour
         FMODUnity.RuntimeManager.CoreSystem.mixerSuspend();
         FMODUnity.RuntimeManager.CoreSystem.mixerResume();
 
-        LoadingBanksText.gameObject.SetActive(true);
         StartCoroutine(CheckBanksLoaded());
     }
 
@@ -45,9 +42,8 @@ public class BankLoader : MonoBehaviour
             yield return null;
         }
 
-        LoadingBanksText.text = "Banks Loaded";
-        LoadingBanksText.GetComponent<Text>().color = Color.green;
-        ChangeSceneButton.interactable = true;
+        Debug.Log("Banks Loaded");
+        LoadNextScene();
     }
 
     public void LoadNextScene()

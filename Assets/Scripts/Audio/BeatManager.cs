@@ -53,15 +53,18 @@ public class BeatManager : MonoBehaviour
     Beat lastBeat;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         songInstance = FMODUnity.RuntimeManager.CreateInstance(cancion);
 
         cb = new FMOD.Studio.EVENT_CALLBACK(BeatCallback);
         songInstance.setCallback(cb, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT);
-        songInstance.start();
+        //songInstance.start();
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         // Variables de control
         beatCounter = 0;
         beatTime = 0;
