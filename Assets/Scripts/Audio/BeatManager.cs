@@ -65,8 +65,10 @@ public class BeatManager : MonoBehaviour
 
 
     private void Awake()
-    {     
-        songInstance = FMODUnity.RuntimeManager.CreateInstance(cancion);
+    {
+        string cancionStr = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        Debug.Log(cancionStr);
+        songInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Song_" + cancionStr);
 
         cb = new FMOD.Studio.EVENT_CALLBACK(BeatCallback);
         songInstance.setCallback(cb, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT);
