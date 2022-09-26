@@ -15,6 +15,8 @@ public class MenuScript : MonoBehaviour
     public GameObject chapa2;
     public GameObject chapa3;
 
+    private string escena;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,9 +51,16 @@ public class MenuScript : MonoBehaviour
             chapa2.SetActive(mouseX >= .33f && mouseX < .66f);
             chapa3.SetActive(mouseX >= .66f);
 
+            if (mouseX < .33f)
+                escena = "Cyberchapas";
+            else if (mouseX < .66f)
+                escena = "Bouncer";
+            else
+                escena = "Machine";
+
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Z) || Input.GetMouseButtonDown(0))
             {
-                SceneManager.LoadScene("GameScene");
+                SceneManager.LoadScene(escena);
             }
         }
     }

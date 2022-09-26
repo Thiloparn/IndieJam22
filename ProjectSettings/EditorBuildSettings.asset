@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/GameScene.unity
     guid: 565c0491ca0501642904101fb8b23fd7
+  - enabled: 1
+    path: Assets/Scenes/Game/Bouncer.unity
+    guid: 47bfecc846f00c142bf03e8edd31e961
+  - enabled: 1
+    path: Assets/Scenes/Game/Cyberchapas.unity
+    guid: 41c35f52d674f034c8381531a0f788b3
+  - enabled: 1
+    path: Assets/Scenes/Game/Machine.unity
+    guid: 8cf63855265f70642b7a1be81e94faf7
   m_configObjects: {}
