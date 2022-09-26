@@ -276,7 +276,7 @@ public class Chapa2Script : MonoBehaviour
                 bounciness = curWall.bounciness;
 
                 //SONIDO
-                if (bounciness < 0.5)
+                if (bounciness < 0.6)
                     choqueInstance.start();
                 else
                     reboteInstance.start();
