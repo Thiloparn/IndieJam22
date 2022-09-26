@@ -30,6 +30,8 @@ public class BeatManager : MonoBehaviour
     [Range(0f, 1.0f)]
     public static float errorMargin = 0.2f;
 
+    private static Animator chapaAnim;
+
     public Chapa2Script chapaScript;
     // temp variables, for debugging
     public Color backgroundMainColor;
@@ -58,9 +60,12 @@ public class BeatManager : MonoBehaviour
     static bool afterBeat;
     static float afterBeatCounter;
 
+    // El tempo de la canción que está sonando
+    static int songTempo;
+
 
     private void Awake()
-    {
+    {     
         songInstance = FMODUnity.RuntimeManager.CreateInstance(cancion);
 
         cb = new FMOD.Studio.EVENT_CALLBACK(BeatCallback);
@@ -71,6 +76,10 @@ public class BeatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        chapaAnim = chapaScript.GetComponent<Animator>();
+        chapaAnim.speed = 2f;
+        //animSt.speed = 2f;
+
         // Variables de control
         beatCounter = 0;
         beatTime = 0;
@@ -84,6 +93,8 @@ public class BeatManager : MonoBehaviour
         lastBeat.no = 0;
         lastBeat.instant = 0;
         lastBeat.click = ClickType.Unused;
+
+        Debug.Log("Start");
     }
 
     // Update is called once per frame
@@ -176,34 +187,43 @@ public class BeatManager : MonoBehaviour
     [MonoPInvokeCallback(typeof(BeatCallbackDelegate))]
     static public FMOD.RESULT BeatCallback(FMOD.Studio.EVENT_CALLBACK_TYPE type, IntPtr eventInstance, IntPtr parameters)
     {
-        beatCounter++;
-        afterBeat = true;
+        // Para marcadores que haya puesto en el timeline
+        if (type == FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER)
+        {
+            FMOD.Studio.TIMELINE_MARKER_PROPERTIES marker = 
+                (FMOD.Studio.TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameters, typeof(FMOD.Studio.TIMELINE_MARKER_PROPERTIES));
 
-        //Debug.Log("Beat " + beatCounter + " en " + timePassed + ", " + beatTime + "s para el siguiente");
+            //Debug.Log((string)marker.name);
+           
+            
+            //int nameLen = 0;
+            //while (Marshal.ReadByte(namePtr, nameLen) != 0) ++nameLen;
+            //byte[] buffer = new byte[nameLen];
+            //Marshal.Copy(namePtr, buffer, 0, buffer.Length);
+            //string name = Encoding.UTF8.GetString(buffer, 0, nameLen);
+            //if (name == "HIGH")
+            //{
+            //    UnityEngine.Debug.Log("Reached high intensity marker");
+            //}
+        }
 
-        //if (type == FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER)
-        //{
-        //    FMOD.Studio.TIMELINE_MARKER_PROPERTIES marker = (FMOD.Studio.TIMELINE_MARKER_PROPERTIES)Marshal.PtrToStructure(parameters, typeof(FMOD.Studio.TIMELINE_MARKER_PROPERTIES));
-        //    IntPtr namePtr = marker.name;
-        //    int nameLen = 0;
-        //    while (Marshal.ReadByte(namePtr, nameLen) != 0) ++nameLen;
-        //    byte[] buffer = new byte[nameLen];
-        //    Marshal.Copy(namePtr, buffer, 0, buffer.Length);
-        //    string name = Encoding.UTF8.GetString(buffer, 0, nameLen);
-        //    if (name == "HIGH")
-        //    {
-        //        UnityEngine.Debug.Log("Reached high intensity marker");
-        //    }
-        //}
-        //if (type == FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT)
-        //{
-        //    FMOD.Studio.TIMELINE_BEAT_PROPERTIES beat = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameters, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES));
-        //}
+        // Estamos en un beat de la canción
+        if (type == FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT)
+        {
+            //Debug.Log("Beat " + beatCounter + " en " + timePassed + ", " + beatTime + "s para el siguiente");
+            beatCounter++;
+            afterBeat = true;
 
 
-        // Actualizar los contadores
-        beatTime = timePassed - lastBeat.instant;
-        lastBeat.instant = timePassed;
+            FMOD.Studio.TIMELINE_BEAT_PROPERTIES beat = (FMOD.Studio.TIMELINE_BEAT_PROPERTIES)Marshal.PtrToStructure(parameters, typeof(FMOD.Studio.TIMELINE_BEAT_PROPERTIES));
+            songTempo = (int)beat.tempo;
+
+            chapaAnim.speed = songTempo / 120f;
+
+            // Actualizar los contadores
+            beatTime = timePassed - lastBeat.instant;
+            lastBeat.instant = timePassed;
+        }
 
         //Invoke("EndBeat", beatTime * errorMargin);
         return FMOD.RESULT.OK;
@@ -214,6 +234,7 @@ public class BeatManager : MonoBehaviour
     private void EndBeat()
     {
         //Debug.Log("Beat ended in " + timePassed);
+        //arrowAnimation.speed = beatTime;
 
         // Se ha terminado el beat y no hemos clicado
         if (lastBeat.no < beatCounter && lastBeat.click == ClickType.Unused)
