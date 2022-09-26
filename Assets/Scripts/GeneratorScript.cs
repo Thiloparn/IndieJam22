@@ -258,7 +258,7 @@ public class GeneratorScript : MonoBehaviour
                 {
                     prevTile = curTile;
                 }
-                Debug.Log(curTile.ToString());
+                //Debug.Log(curTile.ToString());
                 curTile += curDir;
             }
 
