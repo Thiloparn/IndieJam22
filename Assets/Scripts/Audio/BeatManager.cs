@@ -28,7 +28,7 @@ public class BeatManager : MonoBehaviour
 
     [Tooltip("Porcentaje de error que se le permite al jugador al clicar en el beat")]
     [Range(0f, 1.0f)]
-    public static float errorMargin = 0.1f;
+    public static float errorMargin = 0.2f;
 
     public Chapa2Script chapaScript;
     // temp variables, for debugging
@@ -77,6 +77,9 @@ public class BeatManager : MonoBehaviour
         timePassed = 0;
         paused = false;
 
+        afterBeat = false;
+        afterBeatCounter = 0;
+
         // Beat
         lastBeat.no = 0;
         lastBeat.instant = 0;
@@ -93,6 +96,7 @@ public class BeatManager : MonoBehaviour
             if (afterBeatCounter > beatTime * errorMargin) 
             {
                 afterBeat = false;
+                afterBeatCounter = 0;
                 EndBeat();
             }   
         }
@@ -100,25 +104,28 @@ public class BeatManager : MonoBehaviour
         // Hacemos click...
         if (Input.GetMouseButtonDown(0))
         {
+            //Debug.Log("Clicked in " + timePassed);
             // Solo nos interesa si es la primera vez que hacemos click en este beat
             if (lastBeat.click == ClickType.Unused)
             {
                 float diff = Mathf.Abs(timePassed - lastBeat.instant);
                 float timeMargin = beatTime * errorMargin;
 
+                //Debug.Log(timeMargin);
+
                 // Estamos dentro del margen del Beat -> ACIERTO
                 if (diff < (timeMargin) ||
                     diff > (beatTime - timeMargin))
                 {
-                    float accuracy = 0f;
-                    if (diff < timeMargin)
-                        accuracy = Accuracy(diff, beatTime);
-                    else
-                        accuracy = Accuracy(beatTime - diff, beatTime);
+                    //float accuracy = 0f;
+                    //if (diff < timeMargin)
+                    //    accuracy = Accuracy(diff, beatTime);
+                    //else
+                    //    accuracy = Accuracy(beatTime - diff, beatTime);
                     // Actualizamos el n� de beat
                     lastBeat.click = ClickType.Hit;
                     lastBeat.no = beatCounter;
-                    BeatHit(accuracy);
+                    BeatHit();
                 }
 
                 // No lo estamos -> ERROR
@@ -152,13 +159,13 @@ public class BeatManager : MonoBehaviour
     private void BeatHit(float accuracy = 1)
     {
         chapaScript.BeatHit(accuracy);
-        Debug.Log("Beat " + beatCounter + " HIT (" + (int)(accuracy * 100f) + "%)");
+        //Debug.Log("Beat " + beatCounter + " HIT (" + (int)(accuracy * 100f) + "%)");
     }
 
     private void BeatMiss()
     {
         chapaScript.BeatMiss();
-        Debug.Log("Beat " + beatCounter + " MISS");
+        //Debug.Log("Beat " + beatCounter + " MISS");
     }
 
 
@@ -169,6 +176,9 @@ public class BeatManager : MonoBehaviour
     [MonoPInvokeCallback(typeof(BeatCallbackDelegate))]
     static public FMOD.RESULT BeatCallback(FMOD.Studio.EVENT_CALLBACK_TYPE type, IntPtr eventInstance, IntPtr parameters)
     {
+        beatCounter++;
+        afterBeat = true;
+
         //Debug.Log("Beat " + beatCounter + " en " + timePassed + ", " + beatTime + "s para el siguiente");
 
         //if (type == FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER)
@@ -195,11 +205,6 @@ public class BeatManager : MonoBehaviour
         beatTime = timePassed - lastBeat.instant;
         lastBeat.instant = timePassed;
 
-        beatCounter++;
-        //Debug.Log("Beat " + beatCounter);
-
-        afterBeat = true;
-
         //Invoke("EndBeat", beatTime * errorMargin);
         return FMOD.RESULT.OK;
     }
@@ -208,16 +213,17 @@ public class BeatManager : MonoBehaviour
     // Acaba el beat
     private void EndBeat()
     {
+        //Debug.Log("Beat ended in " + timePassed);
+
         // Se ha terminado el beat y no hemos clicado
         if (lastBeat.no < beatCounter && lastBeat.click == ClickType.Unused)
         {
+            //Miss
             lastBeat.click = ClickType.Miss;
             lastBeat.no = beatCounter;
             BeatMiss();
         }
         lastBeat.click = ClickType.Unused;
-
-        //Debug.Log("Beat ended in " + timePassed);
     }
 
 

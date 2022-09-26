@@ -327,7 +327,6 @@ public class Chapa2Script : MonoBehaviour
             barroInstance.start();
         //else if (curFloorType == FloorType.Ice)
         //TODO
-        Debug.Log("sound");
 
 
         if (resetAccelerationOnBeat)
