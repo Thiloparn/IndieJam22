@@ -183,8 +183,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeOn: 1
-  timeOff: 0
-  offset: -1
+  timeOff: -1
+  offset: 0
   laserOn: {fileID: 291746455098238191}
   laserOff: {fileID: 5098728135315144572}
 --- !u!1 &5098728135315144572
