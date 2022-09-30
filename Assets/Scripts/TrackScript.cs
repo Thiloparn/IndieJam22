@@ -9,10 +9,17 @@ public class TrackScript : MonoBehaviour
 
     public float trackLength = -1;
 
+    public Sprite[] grassSprites;
+    public float grassSpacing = 2f;
+    public float grassDist = 8.61f;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        if (grassSprites.Length > 0)
+        {
+            Invoke("AddGrass", 0.0001f);
+        }
     }
 
     public void RecalcLength()
@@ -22,6 +29,29 @@ public class TrackScript : MonoBehaviour
         foreach (TileScript tile in tiles)
         {
             trackLength += tile.trackPath.length;
+        }
+    }
+
+    public void AddGrass()
+    {
+        for (float d = 0; d < trackLength; d += grassSpacing)
+        {
+            Vector3 trackPoint = GetPointAtDist(d);
+            Vector3 trackTangent = GetTangentAtDist(d);
+            float angle = Mathf.Atan2(trackTangent.y, trackTangent.x) * Mathf.Rad2Deg;
+
+            GameObject grass1 = new GameObject("grass");
+            SpriteRenderer spr1 = grass1.AddComponent<SpriteRenderer>();
+            spr1.sprite = grassSprites[Random.Range(0, grassSprites.Length)];
+            grass1.transform.position = trackPoint + new Vector3(-trackTangent.y, trackTangent.x, Random.Range(1f, 2f)) * grassDist;
+            grass1.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+            GameObject grass2 = new GameObject("grass");
+            SpriteRenderer spr2 = grass2.AddComponent<SpriteRenderer>();
+            spr2.flipX = true;
+            spr2.sprite = grassSprites[Random.Range(0, grassSprites.Length)];
+            grass2.transform.position = trackPoint - new Vector3(-trackTangent.y, trackTangent.x, -Random.Range(1f, 2f)) * grassDist;
+            grass2.transform.rotation = Quaternion.Euler(0, 0, 180f + angle);
         }
     }
 
