@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackPath: {fileID: 954874405445092531}
-  cameraPath: {fileID: 0}
+  cameraPath: {fileID: 5374365797177968673}
   path: 000000000300000003000000
   difficulty: 2
 --- !u!1 &2951740500717445333

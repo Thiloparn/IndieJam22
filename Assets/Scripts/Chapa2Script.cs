@@ -173,6 +173,7 @@ public class Chapa2Script : MonoBehaviour
         cameraScript.SetPathPos(closestTile.cameraPath.GetPoint(closestTile.cameraPath.evenlySpacedPoints.GetNormalizedTAtPercentage(closestTilePercentage)));
         if (barreraScript != null)
         {
+            // barreraScript.SetChapaPos(closestTile, closestTileTime);
             barreraScript.SetChapaPos(closestTile, closestTilePercentage);
         }
 
@@ -312,6 +313,11 @@ public class Chapa2Script : MonoBehaviour
 
     public void BeatHit(float accuracy)
     {
+        if (barreraScript != null && barreraScript.lose.losing)
+        {
+            return;
+        }
+
         if (previousPositions.Count >= maxPositionsStored)
         {
             previousPositions.RemoveAt(0);
@@ -348,7 +354,7 @@ public class Chapa2Script : MonoBehaviour
             velocity = Vector2.zero;
         }
 
-        if(barreraScript != null)
+        if (barreraScript != null)
             barreraScript.BeatMiss();
     }
 

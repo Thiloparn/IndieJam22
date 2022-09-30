@@ -41,6 +41,16 @@ public class RotableScript : MonoBehaviour
                 startsGoingDown.SetActive(true);
             }
         }
+
+        if (transform.lossyScale.x < 0f)
+        {
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
+
+        if (transform.lossyScale.y < 0f)
+        {
+            transform.localScale = new Vector3(transform.localScale.x, -transform.localScale.y, transform.localScale.z);
+        }
     }
 
     // Update is called once per frame

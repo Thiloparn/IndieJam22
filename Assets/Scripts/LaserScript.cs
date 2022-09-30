@@ -18,8 +18,11 @@ public class LaserScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        laserOn.SetActive(false);
-        laserOff.SetActive(true);
+        if (timeOff <= 0f)
+        {
+            laserOn.SetActive(true);
+            laserOff.SetActive(false);
+        }
     }
 
     // Update is called once per frame

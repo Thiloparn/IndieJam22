@@ -364,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiles: []
+  trackLength: -1
 --- !u!114 &1153451297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,11 +380,10 @@ MonoBehaviour:
   maxWidth: 5
   maxHeight: 5
   tilePrefabs:
-  - {fileID: 2745384554232715582, guid: 5072f0210a8fa994baba05a04f6b2622, type: 3}
+  - {fileID: 2745384554232715582, guid: 92b0c2a5e59b78e4690eb20e4ffeafac, type: 3}
   - {fileID: 2745384554232715582, guid: de0deea992bc75f40a2c4abaeff2201c, type: 3}
-  - {fileID: 2745384554232715582, guid: 47f371ec0ec53bd44b9606c8d6745669, type: 3}
   track: {fileID: 1153451296}
-  complexity: 100
+  complexity: 0
   debugMaxTries: 10000
 --- !u!114 &1485753280
 MonoBehaviour:
@@ -494,7 +494,6 @@ MonoBehaviour:
       Data3: -95429718
       Data4: 320480953
     Path: event:/Song_Cyberchapas
-  errorMargin: 0.2
   chapaScript: {fileID: 1816843166}
   backgroundMainColor: {r: 0.2272161, g: 0.29700282, b: 0.6981132, a: 0}
   backgroundBeatColor: {r: 0.22745097, g: 0.35990736, b: 0.69803923, a: 0}

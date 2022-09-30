@@ -15,13 +15,15 @@ public class BarreraScript : MonoBehaviour
     public float maxChapaDistance = 2f;
     public float vel = .25f;
     // float distanceToChapa = .8f;
-    float trackPosition = -10f;
+    float trackPosition = -200f;
     Vector3 targetPos = Vector3.zero;
     Quaternion targetRot = Quaternion.identity;
 
     int dangerLevel = 0;
 
     bool firstFrame = true;
+
+    public LoseScript lose;
 
     // Start is called before the first frame update
     void Start()
@@ -33,23 +35,31 @@ public class BarreraScript : MonoBehaviour
     void Update()
     {
         trackPosition += vel * Time.deltaTime;
-        trackPosition = mod(trackPosition, trackScript.tiles.Count);
-        int tileIndex = Mathf.FloorToInt(trackPosition);
+        if (trackScript.trackLength <= 0) trackScript.RecalcLength();
+        trackPosition = mod(trackPosition, trackScript.trackLength);
+
+
+        /*int tileIndex = Mathf.FloorToInt(trackPosition);
         TileScript actualTile = trackScript.tiles[tileIndex];
-        float actualT = actualTile.trackPath.evenlySpacedPoints.GetNormalizedTAtPercentage(mod(trackPosition, 1f));
-        targetPos = Vector3.MoveTowards(targetPos, actualTile.trackPath.GetPoint(actualT), maxVelMove);
-        Vector3 tangent = actualTile.trackPath.GetTangent(actualT);
-        targetRot = Quaternion.RotateTowards(targetRot, Quaternion.Euler(0, 0, Mathf.Atan2(tangent.y, tangent.x) * Mathf.Rad2Deg), maxVelDir);
+        float actualT = actualTile.trackPath.evenlySpacedPoints.GetNormalizedTAtPercentage(mod(trackPosition, 1f));*/
+        Vector3 trackPoint = trackScript.GetPointAtDist(trackPosition);
+        Vector3 trackTangent = trackScript.GetTangentAtDist(trackPosition);
+
+        targetPos = Vector3.MoveTowards(targetPos, trackPoint, maxVelMove);
+        targetRot = Quaternion.RotateTowards(targetRot, Quaternion.Euler(0, 0, Mathf.Atan2(trackTangent.y, trackTangent.x) * Mathf.Rad2Deg), maxVelDir);
 
         if (firstFrame)
         {
-            targetPos = actualTile.trackPath.GetPoint(actualT);
-            targetRot = Quaternion.Euler(0, 0, Mathf.Atan2(tangent.y, tangent.x) * Mathf.Rad2Deg);
+            targetPos = trackPoint;
+            targetRot = Quaternion.Euler(0, 0, Mathf.Atan2(trackTangent.y, trackTangent.x) * Mathf.Rad2Deg);
             firstFrame = false;
         }
 
-        transform.position = new Vector3(targetPos.x, targetPos.y, -6f);
-        transform.rotation = targetRot;
+        if (!lose.losing)
+        {
+            transform.position = new Vector3(targetPos.x, targetPos.y, -6f);
+            transform.rotation = targetRot;
+        }
     }
 
     public void BeatMiss()
@@ -78,7 +88,39 @@ public class BarreraScript : MonoBehaviour
 
     public void SetChapaPos(TileScript closestTile, float closestTilePercentage)
     {
-        trackPosition = Mathf.Max(trackPosition, trackScript.tiles.IndexOf(closestTile) + closestTilePercentage - maxChapaDistance);
+        float chapaPos = trackScript.GetDistAt(closestTile, closestTilePercentage);
+        // float chapaPos = trackScript.tiles.IndexOf(closestTile) + closestTilePercentage;
+        float otherPos = mod(chapaPos - maxChapaDistance, trackScript.trackLength);
+
+        if (trackPosition > chapaPos && trackPosition < chapaPos + 1f)
+        {
+            lose.Lose();
+            return;
+        }
+
+        if (chapaPos > otherPos)
+        {
+            if (trackPosition > chapaPos)
+            {
+                trackPosition = otherPos;
+            }
+            else
+            {
+                trackPosition = Mathf.Max(trackPosition, otherPos);
+            }
+        }
+        else
+        {
+            if (trackPosition > chapaPos)
+            {
+                trackPosition = Mathf.Max(trackPosition, otherPos);
+            }
+            else
+            {
+                // nothing
+            }
+        }
+
         /*
         if (closestTilePercentage >= distanceToChapa)
         {
@@ -102,10 +144,10 @@ public class BarreraScript : MonoBehaviour
         */
     }
 
-    int mod(int x, int m)
+    /*int mod(int x, int m)
     {
         return (x % m + m) % m;
-    }
+    }*/
 
     float mod(float x, float m)
     {

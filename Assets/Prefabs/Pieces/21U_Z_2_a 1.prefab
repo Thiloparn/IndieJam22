@@ -347,7 +347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb9171255405364d9809ed744db36d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trackPath: {fileID: 0}
+  trackPath: {fileID: 5459826001373880818}
   cameraPath: {fileID: 8465511846706443865}
   path: 00000000010000000200000002000000
   difficulty: 2

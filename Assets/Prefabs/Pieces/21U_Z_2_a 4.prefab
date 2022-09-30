@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trackPath: {fileID: 954874405445092531}
-  cameraPath: {fileID: 0}
+  cameraPath: {fileID: 5374365797177968673}
   path: 000000000300000003000000
   difficulty: 2
 --- !u!1 &2951740500717445333
@@ -1046,7 +1046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8455566647969102955, guid: c68a5939962a05f4781496c8ccc9fe3f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21.415415
+      value: -25.77
       objectReference: {fileID: 0}
     - target: {fileID: 8455566647969102955, guid: c68a5939962a05f4781496c8ccc9fe3f, type: 3}
       propertyPath: m_LocalPosition.z

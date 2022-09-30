@@ -15,7 +15,22 @@ public class FloorScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameObject.layer = LayerMask.NameToLayer("Floors"); ;
+        gameObject.layer = LayerMask.NameToLayer("Floors");
+
+        switch (type)
+        {
+            case FloorType.Mud:
+            case FloorType.TrackBorder:
+                drag = 20f;
+                break;
+            case FloorType.Ice:
+                drag = 0f;
+                break;
+            case FloorType.Hole:
+                isHole = true;
+                break;
+        }
+
     }
 
     // Update is called once per frame
