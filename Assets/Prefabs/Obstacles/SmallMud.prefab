@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490c4f82f21c0e74d888d4fa1aaedcd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drag: 0
+  drag: 10
   type: 3
   isHole: 0
 --- !u!58 &8302769114646242805
