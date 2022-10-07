@@ -652,8 +652,8 @@ MonoBehaviour:
       Data4: 320480953
     Path: event:/Song_Cyberchapas
   chapaScript: {fileID: 1816843166}
-  backgroundMainColor: {r: 0.2272161, g: 0.29700282, b: 0.6981132, a: 0}
-  backgroundBeatColor: {r: 0.22745097, g: 0.35990736, b: 0.69803923, a: 0}
+  backgroundMainColor: {r: 0.8113208, g: 0.095674604, b: 0.54766166, a: 0}
+  backgroundBeatColor: {r: 0.8627451, g: 0.043137256, b: 0.56078434, a: 0}
 --- !u!114 &1861083353
 MonoBehaviour:
   m_ObjectHideFlags: 0

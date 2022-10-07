@@ -20,7 +20,9 @@ public class MenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        chapa1.SetActive(false);
+        chapa2.SetActive(false);
+        chapa3.SetActive(false);
     }
 
     // Update is called once per frame
