@@ -13,6 +13,7 @@ public class Chapa2Script : MonoBehaviour
     public Vector2 velocity = Vector2.zero;
     [HideInInspector]
     public FloorType curFloorType;
+    private FloorType prevFloorType;
 
     [Range(0.0f, 500.0f)]
     public float accelerationAmount;
@@ -88,6 +89,7 @@ public class Chapa2Script : MonoBehaviour
     private FMOD.Studio.EventInstance reboteInstance;
     private FMOD.Studio.EventInstance choqueInstance;
     private FMOD.Studio.EventInstance barroInstance;
+    private FMOD.Studio.EventInstance hieloInstance;
 
 
     private void Awake()
@@ -98,6 +100,7 @@ public class Chapa2Script : MonoBehaviour
         reboteInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Rebote");
         choqueInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Choque");
         barroInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Barro");
+        hieloInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Hielo");
     }
 
     // Start is called before the first frame update
@@ -144,6 +147,17 @@ public class Chapa2Script : MonoBehaviour
             velocity += accelerationAmount * lastDirection * Time.deltaTime / accelerationTime;
 
         }
+
+        // Para los sonidos del suelo
+        if(curFloorType != prevFloorType) 
+        {
+            if (curFloorType == FloorType.Ice)
+                hieloInstance.start();
+            else if (curFloorType == FloorType.Mud)
+                barroInstance.start();
+        }
+
+        prevFloorType = curFloorType;
     }
 
     void FixedUpdate()
