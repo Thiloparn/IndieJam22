@@ -9,13 +9,22 @@ public class MenuScript : MonoBehaviour
     public GameObject mainMenuScreen;
 
     public bool onMainMenu = false;
-    int selectedChapa = 0;
+    
 
     public GameObject chapa1;
     public GameObject chapa2;
     public GameObject chapa3;
 
-    private string escena;
+    int selection = 0;
+    private string[] escenas = { "Cyberchapas", "Bouncer", "Machine" };
+
+    //SONIDO
+    private FMOD.Studio.EventInstance selectInstance;
+
+    private void Awake()
+    {
+        selectInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Seleccion");
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -28,14 +37,18 @@ public class MenuScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Portada del menú
         if (onMainMenu)
         {
             if (Input.anyKeyDown)
             {
+                selectInstance.start();
                 onMainMenu = false;
                 mainMenuScreen.SetActive(false);
             }
         }
+
+        // Selección de chapas
         else
         {
             if (Input.GetKeyDown(KeyCode.Backspace))
@@ -54,15 +67,16 @@ public class MenuScript : MonoBehaviour
             chapa3.SetActive(mouseX >= .66f);
 
             if (mouseX < .33f)
-                escena = "Cyberchapas";
+                selection = 0;
             else if (mouseX < .66f)
-                escena = "Bouncer";
+                selection = 1;
             else
-                escena = "Machine";
+                selection = 2;
 
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Z) || Input.GetMouseButtonDown(0))
             {
-                SceneManager.LoadScene(escena);
+                selectInstance.start();
+                SceneManager.LoadScene(escenas[selection]);
             }
         }
     }
