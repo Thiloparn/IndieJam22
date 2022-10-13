@@ -66,13 +66,13 @@ public class BeatManager : MonoBehaviour
 
     private void Awake()
     {
-        string cancionStr = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
-        Debug.Log(cancionStr);
-        songInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Song_" + cancionStr);
-
+        // Callback para los beats
         cb = new FMOD.Studio.EVENT_CALLBACK(BeatCallback);
+        string cancionStr = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+        // Cargamos la canción y le ponemos el callback
+        songInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Song_" + cancionStr);
         songInstance.setCallback(cb, FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_MARKER | FMOD.Studio.EVENT_CALLBACK_TYPE.TIMELINE_BEAT);
-        songInstance.start();
     }
 
     // Start is called before the first frame update
@@ -96,7 +96,9 @@ public class BeatManager : MonoBehaviour
         lastBeat.instant = 0;
         lastBeat.click = ClickType.Unused;
 
-        Debug.Log("Start");
+        // Empezamos a reproducir la canción
+        songInstance.start();
+        Debug.Log("Song start");
     }
 
     // Update is called once per frame
@@ -252,8 +254,12 @@ public class BeatManager : MonoBehaviour
 
     private void OnDestroy()
     {
+        // Paramos la canción, le quitamos el callback y la liberamos (orden inverso al de la creación)
+        Debug.Log("Destroy");
+        songInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE); //INMEDIATE
         songInstance.setCallback(null);
-        songInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT); //INMEDIATE
         songInstance.release();
+
+        Debug.Log("Destroy end");
     }
 }

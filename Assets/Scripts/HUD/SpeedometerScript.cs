@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpeedometerScript : MonoBehaviour
 {
@@ -10,14 +11,14 @@ public class SpeedometerScript : MonoBehaviour
 
     public float speed100 = 10f;
 
-    SpriteRenderer spriteRenderer;
+    Image image;
 
     int prevSpr = -1;
 
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        image = GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -31,7 +32,7 @@ public class SpeedometerScript : MonoBehaviour
         }
         if (prevSpr != curSpr)
         {
-            spriteRenderer.sprite = speedSprites[curSpr];
+            image.sprite = speedSprites[curSpr];
             prevSpr = curSpr;
         }
     }

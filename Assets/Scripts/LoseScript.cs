@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LoseScript : MonoBehaviour
@@ -10,12 +9,12 @@ public class LoseScript : MonoBehaviour
     float alpha = 0f;
     public bool losing = false;
 
-    SpriteRenderer spr;
+    Image image;
 
     // Start is called before the first frame update
     void Start()
     {
-        spr = GetComponent<SpriteRenderer>();
+        image = GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -29,7 +28,7 @@ public class LoseScript : MonoBehaviour
             }
             alpha += Time.deltaTime * loseSpeed;
             alpha = Mathf.Min(alpha, 1f);
-            spr.color = new Color(0f, 0f, 0f, alpha);
+            image.color = new Color(0f, 0f, 0f, alpha);
         }
     }
 
