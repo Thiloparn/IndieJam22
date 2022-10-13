@@ -5,7 +5,7 @@ using UnityEngine;
 public class BarreraScript : MonoBehaviour
 {
 
-    public Chapa2Script chapaScript;
+    public ChapaScript chapaScript;
     public BeatManager beatManager;
     public TrackScript trackScript;
 

@@ -6,7 +6,7 @@ public class SpeedometerScript : MonoBehaviour
 {
 
     public Sprite[] speedSprites;
-    public Chapa2Script chapaScript;
+    public ChapaScript chapaScript;
 
     public float speed100 = 10f;
 

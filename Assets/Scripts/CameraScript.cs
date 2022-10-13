@@ -13,13 +13,17 @@ public class CameraScript : MonoBehaviour
     [Range(0.0f, 0.5f)]
     public float margin;
 
-    public bool predictPosition = false;
-    public float predictDistance = 0.5f;
-    [Tooltip("The lower this is, the less the camera will respond to sudden changes in direction.")]
-    public float predictTurnSpeed = 0.5f;
-    [Tooltip("How fast the camera moves to its target position.")]
-    public float predictMoveSpeed = 0.5f;
-    Vector2 predictDelta = Vector2.zero;
+    Vector3 pathPos = Vector3.zero;
+
+    public float maxSpeed = .1f;
+
+    // public bool predictPosition = false;
+    // public float predictDistance = 0.5f;
+    // [Tooltip("The lower this is, the less the camera will respond to sudden changes in direction.")]
+    // public float predictTurnSpeed = 0.5f;
+    // [Tooltip("How fast the camera moves to its target position.")]
+    // public float predictMoveSpeed = 0.5f;
+    // Vector2 predictDelta = Vector2.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -27,19 +31,27 @@ public class CameraScript : MonoBehaviour
         cam = GetComponent<Camera>();
     }
 
+    public void SetPathPos(Vector3 pos)
+    {
+        pathPos = Vector3.MoveTowards(pathPos, pos, maxSpeed);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (predictPosition)
-        {
-            // predictDelta is the current velocity with some "inertia", so sudden changes in direction don't move the camera too much
-            // predictDelta = Vector2.MoveTowards(predictDelta.normalized, player.velocity.normalized, predictTurnSpeed);
+        // if (predictPosition)
+        // {
+        //     // predictDelta is the current velocity with some "inertia", so sudden changes in direction don't move the camera too much
+        //     // predictDelta = Vector2.MoveTowards(predictDelta.normalized, player.velocity.normalized, predictTurnSpeed);
 
-            predictDelta = Vector2.MoveTowards(predictDelta, player.mouseDirection, predictTurnSpeed);
+        //     predictDelta = Vector2.MoveTowards(predictDelta, player.mouseDirection, predictTurnSpeed);
 
-            Vector2 targetPosition = player.position + predictDelta * predictDistance;
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetPosition.x, targetPosition.y, transform.position.z), predictMoveSpeed);
-        }
+        //     Vector2 targetPosition = player.position + predictDelta * predictDistance;
+        //     transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetPosition.x, targetPosition.y, transform.position.z), predictMoveSpeed);
+        // }
+
+        transform.position = new Vector3(pathPos.x, pathPos.y, transform.position.z);
+        // transform.position = Vector3.MoveTowards(transform.position, new Vector3(pathPos.x, pathPos.y, transform.position.z), maxSpeed);
 
         if (useMargin)
         {

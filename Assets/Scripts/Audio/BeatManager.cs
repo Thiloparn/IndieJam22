@@ -32,7 +32,7 @@ public class BeatManager : MonoBehaviour
 
     private static Animator chapaAnim;
 
-    public Chapa2Script chapaScript;
+    public ChapaScript chapaScript;
     // temp variables, for debugging
     public Color backgroundMainColor;
     public Color backgroundBeatColor;

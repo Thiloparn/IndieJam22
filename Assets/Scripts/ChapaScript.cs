@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum FloorType { TrackMain, TrackBorder, Hole, Mud, Ice }
+
 public class ChapaScript : MonoBehaviour
 {
 
@@ -9,9 +11,9 @@ public class ChapaScript : MonoBehaviour
     public Vector2 position = Vector2.zero;
     [HideInInspector]
     public Vector2 velocity = Vector2.zero;
-
-    [Range(0.01f, 2.0f)]
-    public float secondsBetweenBeats;
+    [HideInInspector]
+    public FloorType curFloorType;
+    private FloorType prevFloorType;
 
     [Range(0.0f, 500.0f)]
     public float accelerationAmount;
@@ -21,10 +23,16 @@ public class ChapaScript : MonoBehaviour
     public float accelerationTime;
 
     [Range(0.0f, 20.0f)]
-    public float defaultFloorDrag;
+    public float trackMainDrag = 7.54f;
 
-    [Tooltip("If true, beats are triggered by clicking instead of the beat.")]
-    public bool freeClick;
+    [Range(0.0f, 20.0f)]
+    public float trackOutDrag = 20f;
+
+    [Range(0.0f, 10.0f)]
+    public float trackMainWidth = 5.5f;
+
+    [Range(0.0f, 50.0f)]
+    public float trackOutWidth = 13.5f;
 
     [Tooltip("If true, act as if mouse was pressed every beat.")]
     public bool alwaysPressed;
@@ -65,14 +73,14 @@ public class ChapaScript : MonoBehaviour
     [HideInInspector]
     public Vector2 mouseDirection = Vector2.zero;
 
-    // temp variables, for debugging
-    public Color backgroundMainColor;
-    public Color backgroundBeatColor;
-
     float chapaRadius;
 
     LayerMask wallsMask;
     LayerMask floorsMask;
+
+    public TrackScript trackScript;
+    public CameraScript cameraScript;
+    public BarreraScript barreraScript;
 
 
     //SONIDO
@@ -80,7 +88,20 @@ public class ChapaScript : MonoBehaviour
     private FMOD.Studio.EventInstance chorlitoInstance;
     private FMOD.Studio.EventInstance reboteInstance;
     private FMOD.Studio.EventInstance choqueInstance;
+    private FMOD.Studio.EventInstance barroInstance;
+    private FMOD.Studio.EventInstance hieloInstance;
 
+
+    private void Awake()
+    {
+        // SONIDO
+        caidaInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Caida");
+        chorlitoInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Chorlito");
+        reboteInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Rebote");
+        choqueInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Choque");
+        barroInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Barro");
+        hieloInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Hielo");
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -94,13 +115,6 @@ public class ChapaScript : MonoBehaviour
         previousPositions = new List<Vector2>(maxPositionsStored);
 
         position = transform.position;
-
-        // SONIDO
-        caidaInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Caída");
-        chorlitoInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Chorlito");
-        reboteInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Rebote");
-        choqueInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Choque");
-
     }
 
     // Update is called once per frame
@@ -126,21 +140,6 @@ public class ChapaScript : MonoBehaviour
         remainingTimeOnAir = Mathf.Max(0f, remainingTimeOnAir - Time.deltaTime);
 
         timeSinceLastBeat += Time.deltaTime;
-        if (freeClick)
-        {
-            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
-            {
-                timeSinceLastBeat = 0f;
-                Beat();
-            }
-        }
-        else if (timeSinceLastBeat > secondsBetweenBeats)
-        {
-            timeSinceLastBeat %= secondsBetweenBeats;
-            Beat();
-        }
-
-        Camera.main.backgroundColor = Color.Lerp(backgroundBeatColor, backgroundMainColor, (timeSinceLastBeat / secondsBetweenBeats) * (timeSinceLastBeat / secondsBetweenBeats));
 
         if (accelerationTime > 0f && timeSinceLastBeat < accelerationTime)
         {
@@ -148,70 +147,129 @@ public class ChapaScript : MonoBehaviour
             velocity += accelerationAmount * lastDirection * Time.deltaTime / accelerationTime;
 
         }
+
+        // Para los sonidos del suelo
+        if(curFloorType != prevFloorType) 
+        {
+            if (curFloorType == FloorType.Ice)
+                hieloInstance.start();
+            else if (curFloorType == FloorType.Mud)
+                barroInstance.start();
+        }
+
+        prevFloorType = curFloorType;
     }
 
     void FixedUpdate()
     {
         float curDrag;
-        if (remainingTimeOnAir > 0f)
+
+        // todo: this could be optimized a ton
+        TileScript closestTile = null;
+        float closestTileDistanceSq = float.PositiveInfinity;
+        float closestTileTime = 0f; // between 0 and 1
+
+        float curTileTime;
+        foreach (TileScript curTile in trackScript.tiles)
         {
-            curDrag = airDrag;
+            Vector3 curPoint = curTile.trackPath.FindNearestPointTo(transform.position, out curTileTime, 100f);
+            curPoint.z = transform.position.z;
+            float curTileDistanceSq = Vector3.SqrMagnitude(transform.position - curPoint);
+            if (curTileDistanceSq < closestTileDistanceSq)
+            {
+                closestTile = curTile;
+                closestTileDistanceSq = curTileDistanceSq;
+                closestTileTime = curTileTime;
+            }
+        }
+
+        float closestTilePercentage = closestTile.trackPath.evenlySpacedPoints.GetPercentageAtNormalizedT(closestTileTime);
+        cameraScript.SetPathPos(closestTile.cameraPath.GetPoint(closestTile.cameraPath.evenlySpacedPoints.GetNormalizedTAtPercentage(closestTilePercentage)));
+        if (barreraScript != null)
+        {
+            // barreraScript.SetChapaPos(closestTile, closestTileTime);
+            barreraScript.SetChapaPos(closestTile, closestTilePercentage);
+        }
+
+        bool fellToHole = false;
+        if (closestTileDistanceSq * 4 < trackMainWidth * trackMainWidth)
+        {
+            curDrag = trackMainDrag;
+            // Debug.Log("track");
+            curFloorType = FloorType.TrackMain;
+        }
+        else if (closestTileDistanceSq * 4 < trackOutWidth * trackOutWidth)
+        {
+            curDrag = trackOutDrag;
+            // Debug.Log("mud");
+            curFloorType = FloorType.TrackBorder;
         }
         else
         {
-            curDrag = defaultFloorDrag;
-            RaycastHit2D[] floorHits = Physics2D.CircleCastAll(position, chapaRadius, Vector2.zero, 0.0f, floorsMask);
-            bool fellToHole = false;
-            if (floorHits.Length > 0)
+            // Debug.Log("out");
+            if (defaultToHole)
             {
-                RaycastHit2D floorHit = floorHits[0];
-                float lowestZ = floorHit.transform.position.z;
-                for (int k = 0; k < floorHits.Length; k++)
+                fellToHole = true;
+                curDrag = 1f;
+                curFloorType = FloorType.Hole;
+            }
+            else
+            {
+                curDrag = trackOutDrag;
+                curFloorType = FloorType.TrackBorder;
+            }
+        }
+
+        RaycastHit2D[] floorHits = Physics2D.CircleCastAll(position, chapaRadius, Vector2.zero, 0.0f, floorsMask);
+        if (floorHits.Length > 0)
+        {
+            RaycastHit2D floorHit = floorHits[0];
+            float lowestZ = floorHit.transform.position.z;
+            for (int k = 0; k < floorHits.Length; k++)
+            {
+                if (floorHits[k].transform.position.z < lowestZ)
                 {
-                    if (floorHits[k].transform.position.z < lowestZ)
-                    {
-                        floorHit = floorHits[k];
-                        lowestZ = floorHit.transform.position.z;
-                    }
+                    floorHit = floorHits[k];
+                    lowestZ = floorHit.transform.position.z;
                 }
-                if (floorHit.collider != null)
+            }
+            if (floorHit.collider != null)
+            {
+                FloorScript curFloor = floorHit.collider.GetComponent<FloorScript>();
+                if (curFloor != null)
                 {
-                    FloorScript curFloor = floorHit.collider.GetComponent<FloorScript>();
-                    if (curFloor != null)
-                    {
-                        if (curFloor.isHole)
-                        {
-                            fellToHole = true;
-                        }
-                        curDrag = curFloor.drag;
-                    }
-                    else if (defaultToHole)
+                    if (curFloor.type == FloorType.Hole)
                     {
                         fellToHole = true;
                     }
+                    curDrag = curFloor.drag;
+                    curFloorType = curFloor.type;
                 }
             }
-            else if (defaultToHole)
-            {
-                fellToHole = true;
-            }
-
-            if (fellToHole && previousPositions.Count > 0)
-            {
-                //SONIDO
-                caidaInstance.start();
-
-                int nToRemove = Mathf.Min(holePenalty - 1, previousPositions.Count);
-                previousPositions.RemoveRange(previousPositions.Count - nToRemove, nToRemove);
-                position = previousPositions[previousPositions.Count - 1];
-                transform.position = position;
-                velocity = Vector2.zero;
-                remainingTimeOnAir = 0f;
-                timeSinceLastBeat = 0f;
-                lastDirection = Vector2.zero;
-                return;
-            }
         }
+
+        if (remainingTimeOnAir > 0f)
+        {
+            curDrag = airDrag;
+            fellToHole = false;
+        }
+
+        if (fellToHole && previousPositions.Count > 0)
+        {
+            //SONIDO
+            caidaInstance.start();
+
+            int nToRemove = Mathf.Min(holePenalty - 1, previousPositions.Count);
+            previousPositions.RemoveRange(previousPositions.Count - nToRemove, nToRemove);
+            position = previousPositions[previousPositions.Count - 1];
+            transform.position = position;
+            velocity = Vector2.zero;
+            remainingTimeOnAir = 0f;
+            timeSinceLastBeat = 0f;
+            lastDirection = Vector2.zero;
+            return;
+        }
+
 
 
         velocity -= velocity * curDrag * Time.deltaTime;
@@ -233,7 +291,7 @@ public class ChapaScript : MonoBehaviour
                 bounciness = curWall.bounciness;
 
                 //SONIDO
-                if (bounciness < 0.5)
+                if (bounciness < 0.6)
                     choqueInstance.start();
                 else
                     reboteInstance.start();
@@ -267,37 +325,51 @@ public class ChapaScript : MonoBehaviour
         transform.position = position;
     }
 
-    void Beat()
+    public void BeatHit(float accuracy)
     {
+        if (barreraScript != null && barreraScript.lose.losing)
+        {
+            return;
+        }
+
         if (previousPositions.Count >= maxPositionsStored)
         {
             previousPositions.RemoveAt(0);
         }
         previousPositions.Add(position + Vector2.zero);
 
-        if (alwaysPressed || Input.GetMouseButton(0))
-        {
-            //SONIDO
-            chorlitoInstance.start();
+        timeSinceLastBeat = 0f;
+
+        //SONIDO
+        chorlitoInstance.start();
+        // Suelo que ralentiza
+        if (curFloorType == FloorType.Mud || curFloorType == FloorType.TrackBorder)
+            barroInstance.start();
+        //else if (curFloorType == FloorType.Ice)
+        //TODO
 
 
-            if (resetAccelerationOnBeat)
-            {
-                velocity = Vector2.zero;
-            }
-            lastDirection = mouseDirection;
-            if (accelerationTime == 0f)
-            {
-                velocity += accelerationAmount * lastDirection;
-            }
-            remainingTimeOnAir = airTime;
-        }
-
-        if (allowBrake && Input.GetMouseButton(1))
+        if (resetAccelerationOnBeat)
         {
             velocity = Vector2.zero;
-            Debug.Log(velocity);
         }
+        lastDirection = mouseDirection;
+        if (accelerationTime == 0f)
+        {
+            velocity += accelerationAmount * lastDirection;
+        }
+        remainingTimeOnAir = airTime;
+    }
+
+    public void BeatMiss()
+    {
+        if (allowBrake)
+        {
+            velocity = Vector2.zero;
+        }
+
+        if (barreraScript != null)
+            barreraScript.BeatMiss();
     }
 
 }
