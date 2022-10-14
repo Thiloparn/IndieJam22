@@ -153,11 +153,14 @@ public class BeatManager : MonoBehaviour
         }
 
         // Pausar la canci�n
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) || Input.GetKeyDown(KeyCode.Escape))
         {
             paused = !paused;
+
+            Time.timeScale = paused ? 0f : 1f;
             songInstance.setPaused(paused);
-            Debug.Log("PAUSED");
+
+            Debug.Log(paused ? "Pause" : "Resume");
         }
 
         float t = (timePassed - lastBeat.instant) / beatTime;

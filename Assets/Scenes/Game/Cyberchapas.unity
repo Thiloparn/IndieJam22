@@ -624,7 +624,7 @@ PrefabInstance:
     - target: {fileID: 5555034347824613404, guid: 80c5d7d355afa6e4fae6cfcae2fb41b7, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -738466781, guid: 9d5bc82af21fce94bb9a567e40965bf6, type: 3}
+      objectReference: {fileID: 1373045236, guid: 9d5bc82af21fce94bb9a567e40965bf6, type: 3}
     - target: {fileID: 6069330393394302542, guid: 80c5d7d355afa6e4fae6cfcae2fb41b7, type: 3}
       propertyPath: m_Name
       value: Chapa

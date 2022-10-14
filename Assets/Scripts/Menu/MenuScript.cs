@@ -15,15 +15,18 @@ public class MenuScript : MonoBehaviour
     public GameObject chapa2;
     public GameObject chapa3;
 
-    int selection = 0;
+    int selection = -1;
     private string[] escenas = { "Cyberchapas", "Bouncer", "Machine" };
 
     //SONIDO
     private FMOD.Studio.EventInstance selectInstance;
+    private FMOD.Studio.EventInstance acceptInstance;
 
     private void Awake()
     {
         selectInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Seleccion");
+        selectInstance.setVolume(0.6f);
+        acceptInstance = FMODUnity.RuntimeManager.CreateInstance("event:/Aceptar");
     }
 
     // Start is called before the first frame update
@@ -42,7 +45,7 @@ public class MenuScript : MonoBehaviour
         {
             if (Input.anyKeyDown)
             {
-                selectInstance.start();
+                acceptInstance.start();
                 onMainMenu = false;
                 mainMenuScreen.SetActive(false);
             }
@@ -55,6 +58,7 @@ public class MenuScript : MonoBehaviour
             {
                 onMainMenu = true;
                 mainMenuScreen.SetActive(true);
+                selection = -1;
                 return;
             }
             // todo: elegir chapa - input
@@ -66,6 +70,8 @@ public class MenuScript : MonoBehaviour
             chapa2.SetActive(mouseX >= .33f && mouseX < .66f);
             chapa3.SetActive(mouseX >= .66f);
 
+            int prevSel = selection;
+
             if (mouseX < .33f)
                 selection = 0;
             else if (mouseX < .66f)
@@ -73,9 +79,13 @@ public class MenuScript : MonoBehaviour
             else
                 selection = 2;
 
+            // Hemos cambiado de selección
+            if (prevSel >= 0 && prevSel != selection)
+                selectInstance.start();
+
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Z) || Input.GetMouseButtonDown(0))
             {
-                selectInstance.start();
+                acceptInstance.start();
                 SceneManager.LoadScene(escenas[selection]);
             }
         }
