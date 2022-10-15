@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
-  type: 2
+  type: 5
   isHole: 1
 --- !u!60 &9000988832962505942
 PolygonCollider2D:
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
-  type: 2
+  type: 5
   isHole: 1
 --- !u!60 &4256904436880870292
 PolygonCollider2D:
@@ -598,7 +598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
-  type: 2
+  type: 5
   isHole: 1
 --- !u!60 &619526513698664536
 PolygonCollider2D:
@@ -896,7 +896,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
-  type: 2
+  type: 5
   isHole: 1
 --- !u!60 &4089000144708978936
 PolygonCollider2D:

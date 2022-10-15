@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
-  type: 2
+  type: 5
   isHole: 1
 --- !u!61 &5816419897447714579
 BoxCollider2D:
@@ -633,7 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
-  type: 2
+  type: 5
   isHole: 1
 --- !u!61 &4434815023581300768
 BoxCollider2D:
@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
-  type: 2
+  type: 5
   isHole: 1
 --- !u!61 &1088252703827136308
 BoxCollider2D:
@@ -887,7 +887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drag: 0
-  type: 2
+  type: 5
   isHole: 1
 --- !u!61 &2444931170471980477
 BoxCollider2D:

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FloorType { TrackMain, TrackBorder, Hole, Mud, Ice }
+public enum FloorType { TrackMain, TrackBorder, Hole, Mud, Ice, Laser }
 
 public class ChapaScript : MonoBehaviour
 {
@@ -240,7 +240,7 @@ public class ChapaScript : MonoBehaviour
                 FloorScript curFloor = floorHit.collider.GetComponent<FloorScript>();
                 if (curFloor != null)
                 {
-                    if (curFloor.type == FloorType.Hole)
+                    if (curFloor.type == FloorType.Hole || curFloor.type == FloorType.Laser)
                     {
                         fellToHole = true;
                     }
@@ -259,7 +259,10 @@ public class ChapaScript : MonoBehaviour
         if (fellToHole && previousPositions.Count > 0)
         {
             //SONIDO
-            caidaInstance.start();
+            if(curFloorType == FloorType.Hole)
+                caidaInstance.start();
+            else if (curFloorType == FloorType.Laser)
+                zapInstance.start();
 
             int nToRemove = Mathf.Min(holePenalty - 1, previousPositions.Count);
             previousPositions.RemoveRange(previousPositions.Count - nToRemove, nToRemove);
